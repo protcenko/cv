@@ -7,6 +7,7 @@
   <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
+
     body {
       font-family: 'General Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
       font-size: 15px;
@@ -17,18 +18,31 @@
       margin: 48px auto;
       padding: 0 24px 64px;
     }
-    h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.5px; }
+
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
     h2 {
       font-size: 11px;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1.2px;
-      color: #aaa;
+      color: #999;
       margin: 40px 0 14px;
       padding-bottom: 6px;
       border-bottom: 1px solid #ebebeb;
     }
-    .subtitle { color: #555; font-size: 16px; margin-top: 5px; font-weight: 500; }
+
+    .subtitle {
+      color: #555;
+      font-size: 16px;
+      margin-top: 5px;
+      font-weight: 500;
+    }
+
     .contact {
       margin-top: 10px;
       font-size: 13px;
@@ -38,20 +52,43 @@
       gap: 4px 0;
       align-items: center;
     }
+
     .contact a {
-      color: #333;
+      color: #222;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      padding: 3px 10px 3px 0;
+      justify-content: center;
+      padding: 2px 6px;
       border-radius: 4px;
-      transition: color 0.15s;
+      transition: color 0.15s ease;
     }
-    .contact a:hover { color: #0070f3; }
-    .contact .sep { color: #ddd; margin: 0 4px; user-select: none; }
-    .contact .location { color: #888; padding: 3px 10px 3px 0; }
-    .role { margin-bottom: 22px; }
+
+    .contact a:hover {
+      color: #000;
+    }
+
+    .contact a svg {
+      width: 16px;
+      height: 16px;
+      display: block;
+    }
+
+    .contact .sep {
+      color: #ddd;
+      margin: 0 4px;
+      user-select: none;
+    }
+
+    .contact .location {
+      color: #666;
+      padding: 2px 0;
+    }
+
+    .role {
+      margin-bottom: 22px;
+    }
+
     .role-header {
       display: flex;
       justify-content: space-between;
@@ -59,15 +96,58 @@
       flex-wrap: wrap;
       gap: 4px;
     }
-    .role-title { font-weight: 600; font-size: 15px; }
-    .role-company { color: #666; font-size: 13.5px; margin-top: 2px; }
-    .role-date { font-size: 12.5px; color: #999; white-space: nowrap; }
-    ul { margin-top: 8px; padding-left: 18px; }
-    ul li { margin-bottom: 5px; color: #333; font-size: 14px; line-height: 1.55; }
-    p { color: #333; font-size: 14.5px; line-height: 1.65; }
-    .cert { margin-bottom: 7px; font-size: 14px; }
-    .cert-name { font-weight: 500; }
-    .cert-issuer { color: #999; font-size: 13px; }
+
+    .role-title {
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    .role-company {
+      color: #666;
+      font-size: 13.5px;
+      margin-top: 2px;
+    }
+
+    .role-date {
+      font-size: 12.5px;
+      color: #999;
+      white-space: nowrap;
+    }
+
+    ul {
+      margin-top: 8px;
+      padding-left: 18px;
+    }
+
+    ul li {
+      margin-bottom: 5px;
+      color: #333;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    p {
+      color: #333;
+      font-size: 14.5px;
+      line-height: 1.65;
+      max-width: 72ch;
+      margin-bottom: 4px;
+    }
+
+    .cert {
+      margin-bottom: 7px;
+      font-size: 14px;
+    }
+
+    .cert-name {
+      font-weight: 500;
+    }
+
+    .cert-issuer {
+      color: #999;
+      font-size: 13px;
+    }
+
     #google_translate_element {
       position: fixed;
       top: 16px;
@@ -80,18 +160,48 @@
       font-size: 13px;
       box-shadow: 0 1px 4px rgba(0,0,0,0.08);
     }
-    .goog-te-banner-frame { display: none !important; }
-    body { top: 0 !important; }
-    @media (max-width: 600px) {
-      body { margin: 24px auto; font-size: 14px; }
-      .role-header { flex-direction: column; gap: 2px; }
-      .role-date { margin-top: 1px; }
+
+    .goog-te-banner-frame {
+      display: none !important;
     }
+
+    body {
+      top: 0 !important;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        margin: 24px auto;
+        font-size: 14px;
+      }
+
+      .role-header {
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .role-date {
+        margin-top: 1px;
+      }
+    }
+
     @media print {
-      body { margin: 24px auto; font-size: 13px; }
-      h2 { margin-top: 24px; }
-      #google_translate_element { display: none; }
-      a { color: #333 !important; }
+      body {
+        margin: 24px auto;
+        font-size: 13px;
+      }
+
+      h2 {
+        margin-top: 24px;
+      }
+
+      #google_translate_element {
+        display: none;
+      }
+
+      a {
+        color: #333 !important;
+      }
     }
   </style>
 </head>
@@ -99,14 +209,31 @@
 
   <h1>Evgenii Protcenko, Ph.D., PMP</h1>
   <div class="subtitle">Technical Infrastructure Program Manager</div>
+
   <div class="contact">
-    <a href="mailto:cv@protcenko.com" title="cv@protcenko.com">✉️ cv@protcenko.com</a>
+    <a href="mailto:cv@protcenko.com" title="Email: cv@protcenko.com" aria-label="Email">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M4 6h16v12H4z" fill="none" stroke="currentColor" stroke-width="1.8"></path>
+        <path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8"></path>
+      </svg>
+    </a>
     <span class="sep">·</span>
-    <span class="location">📍 Seattle, WA</span>
+    <span class="location">Seattle, WA</span>
     <span class="sep">·</span>
-    <a href="https://linkedin.com/in/evgeniip" target="_blank" rel="noopener noreferrer" title="LinkedIn">💼 LinkedIn</a>
+    <a href="https://linkedin.com/in/evgeniip" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M6.5 8.5v9" stroke="currentColor" stroke-width="1.8" fill="none"></path>
+        <path d="M6.5 5.5h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path>
+        <path d="M11 11.5v6" stroke="currentColor" stroke-width="1.8" fill="none"></path>
+        <path d="M11 13c.8-1 1.8-1.7 3.2-1.7 2.1 0 3.3 1.4 3.3 4V17.5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"></path>
+      </svg>
+    </a>
     <span class="sep">·</span>
-    <a href="https://github.com/protcenko" target="_blank" rel="noopener noreferrer" title="GitHub">🐙 GitHub</a>
+    <a href="https://github.com/protcenko" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
+      <svg viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 3.8a8.2 8.2 0 0 0-2.6 16c.4.1.5-.2.5-.4v-1.5c-2.1.5-2.5-.9-2.5-.9-.4-.9-.9-1.1-.9-1.1-.8-.5.1-.5.1-.5.9.1 1.3.9 1.3.9.8 1.3 2.1.9 2.6.7.1-.6.3-.9.6-1.1-1.7-.2-3.6-.8-3.6-3.8 0-.8.3-1.5.8-2-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8a7.6 7.6 0 0 1 4 0c1.5-1 2.2-.8 2.2-.8.5 1.1.2 1.9.1 2.1.5.5.8 1.2.8 2 0 3-1.9 3.6-3.7 3.8.3.3.6.8.6 1.6v2.4c0 .2.1.5.5.4A8.2 8.2 0 0 0 12 3.8z" fill="currentColor"></path>
+      </svg>
+    </a>
   </div>
 
   <h2>Summary</h2>
@@ -318,9 +445,9 @@
 
   <div id="google_translate_element"></div>
   <script type="text/javascript">
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
-  }
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
+    }
   </script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
