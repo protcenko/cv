@@ -64,9 +64,7 @@
       transition: color 0.15s ease;
     }
 
-    .contact a:hover {
-      color: #000;
-    }
+    .contact a:hover { color: #000; }
 
     .contact a svg {
       width: 16px;
@@ -85,9 +83,77 @@
       padding: 2px 0;
     }
 
-    .role {
-      margin-bottom: 22px;
+    /* Summary */
+    .summary-short p {
+      color: #333;
+      font-size: 14.5px;
+      line-height: 1.65;
+      max-width: 72ch;
+      margin-bottom: 8px;
     }
+
+    .specialties {
+      color: #888;
+      font-size: 13px;
+      line-height: 1.7;
+      max-width: 72ch;
+      margin-top: 6px;
+    }
+
+    /* About expandable */
+    .about-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 12px;
+      font-size: 13px;
+      color: #888;
+      cursor: pointer;
+      background: none;
+      border: none;
+      padding: 0;
+      font-family: inherit;
+      transition: color 0.15s ease;
+    }
+
+    .about-toggle:hover { color: #333; }
+
+    .about-toggle svg {
+      width: 14px;
+      height: 14px;
+      transition: transform 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    .about-toggle.open svg {
+      transform: rotate(180deg);
+    }
+
+    .about-expanded {
+      display: none;
+      margin-top: 14px;
+      padding: 16px 18px;
+      background: #f9f9f8;
+      border-radius: 8px;
+      border: 1px solid #ebebeb;
+    }
+
+    .about-expanded.open {
+      display: block;
+    }
+
+    .about-expanded p {
+      color: #333;
+      font-size: 14px;
+      line-height: 1.7;
+      max-width: 70ch;
+      margin-bottom: 12px;
+    }
+
+    .about-expanded p:last-child { margin-bottom: 0; }
+
+    /* Roles */
+    .role { margin-bottom: 22px; }
 
     .role-header {
       display: flex;
@@ -126,27 +192,9 @@
       line-height: 1.55;
     }
 
-    p {
-      color: #333;
-      font-size: 14.5px;
-      line-height: 1.65;
-      max-width: 72ch;
-      margin-bottom: 4px;
-    }
-
-    .cert {
-      margin-bottom: 7px;
-      font-size: 14px;
-    }
-
-    .cert-name {
-      font-weight: 500;
-    }
-
-    .cert-issuer {
-      color: #999;
-      font-size: 13px;
-    }
+    .cert { margin-bottom: 7px; font-size: 14px; }
+    .cert-name { font-weight: 500; }
+    .cert-issuer { color: #999; font-size: 13px; }
 
     #google_translate_element {
       position: fixed;
@@ -161,47 +209,22 @@
       box-shadow: 0 1px 4px rgba(0,0,0,0.08);
     }
 
-    .goog-te-banner-frame {
-      display: none !important;
-    }
-
-    body {
-      top: 0 !important;
-    }
+    .goog-te-banner-frame { display: none !important; }
+    body { top: 0 !important; }
 
     @media (max-width: 600px) {
-      body {
-        margin: 24px auto;
-        font-size: 14px;
-      }
-
-      .role-header {
-        flex-direction: column;
-        gap: 2px;
-      }
-
-      .role-date {
-        margin-top: 1px;
-      }
+      body { margin: 24px auto; font-size: 14px; }
+      .role-header { flex-direction: column; gap: 2px; }
+      .role-date { margin-top: 1px; }
     }
 
     @media print {
-      body {
-        margin: 24px auto;
-        font-size: 13px;
-      }
-
-      h2 {
-        margin-top: 24px;
-      }
-
-      #google_translate_element {
-        display: none;
-      }
-
-      a {
-        color: #333 !important;
-      }
+      body { margin: 24px auto; font-size: 13px; }
+      h2 { margin-top: 24px; }
+      #google_translate_element { display: none; }
+      a { color: #333 !important; }
+      .about-toggle { display: none; }
+      .about-expanded { display: block; border: none; background: none; padding: 0; margin-top: 8px; }
     }
   </style>
 </head>
@@ -237,7 +260,24 @@
   </div>
 
   <h2>Summary</h2>
-  <p>Technical Infrastructure Program Manager with 10 years at AWS delivering hyperscale network backbone capacity programs and mission-critical infrastructure at global scale. Ph.D. in Engineering, PMP-certified. Proficient in Rust, TypeScript, and Python, with a focus on custom operational tooling and AI-accelerated workflows. Fluent in English, French, and Russian.</p>
+
+  <div class="summary-short">
+    <p>Technical Infrastructure Program Manager with 10 years at AWS delivering hyperscale network backbone capacity programs and mission-critical infrastructure at global scale. Ph.D. in Engineering, PMP-certified, and proficient in Rust, TypeScript, and Python. Fluent in English, French, and Russian.</p>
+    <p class="specialties"><strong>Specialties:</strong> Global Infrastructure Program Management · Network Backbone Topology · Risk &amp; Issue Management · Cross-Functional Stakeholder Leadership · Network Troubleshooting · GenAI Tools &amp; Automation · Custom Operational Tooling (Rust · TypeScript · Python) · Data Center Delivery · Mission-Critical Facilities · Vendor &amp; Colocation Management · Capital Project Execution · Structured Cabling · Regulatory Compliance</p>
+  </div>
+
+  <button class="about-toggle" id="aboutToggle" aria-expanded="false" aria-controls="aboutExpanded">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+      <path d="M6 9l6 6 6-6"></path>
+    </svg>
+    Read full bio
+  </button>
+
+  <div class="about-expanded" id="aboutExpanded" role="region" aria-labelledby="aboutToggle">
+    <p>I lead complex, cross-continental infrastructure delivery end to end — from demand intake through physical-layer validation and operational handoff — driving significant cost savings through fiber-migration programs and innovative network design across data centers in North America and Europe.</p>
+    <p>I also build production-grade operational tooling in Rust, TypeScript, and Python. Two recent examples: a native macOS tracker for backbone order management and reporting, and a physical-layer (L1) fiber-path diagnostic tool that turned weeks-stalled deployments around in days. Together these represent 30,000+ lines of production code with hundreds of automated tests, built using AI-accelerated workflows while delivering full-time on my program portfolio. The L1 diagnostic tool cut fiber-path analysis time by 80–90% in production pilots; the order tracker reduced weekly reporting from roughly half an hour to a single click and consolidated five separate manual tools into one.</p>
+    <p>PhD in Engineering, PMP-certified, and technically grounded across the full infrastructure stack. Fluent in English, French, and Russian.</p>
+  </div>
 
   <h2>Experience</h2>
 
@@ -404,9 +444,11 @@
 
   <h2>Certifications</h2>
   <div class="cert"><span class="cert-name">Project Management Professional (PMP)</span> <span class="cert-issuer">· Project Management Institute · Issued Feb 2023 · Expires Feb 2032</span></div>
+  <div class="cert"><span class="cert-name">AWS Certified Cloud Practitioner</span> <span class="cert-issuer">· Amazon Web Services</span></div>
   <div class="cert"><span class="cert-name">BICSI ICT Design Fundamentals</span> <span class="cert-issuer">· BICSI · Sep 2018</span></div>
   <div class="cert"><span class="cert-name">Schneider Electric Data Center Certified Associate</span> <span class="cert-issuer">· Schneider Electric · Aug 2017</span></div>
   <div class="cert"><span class="cert-name">BELDEN IBDN 747 — Optical Fiber Media</span> <span class="cert-issuer">· Belden Inc. · May 2014</span></div>
+  <div class="cert"><span class="cert-name">BELDEN IBDN 727 — Copper Media</span> <span class="cert-issuer">· Belden Inc. · May 2014</span></div>
   <div class="cert"><span class="cert-name">Construction Health and Safety (5th edition, including WHMIS)</span> <span class="cert-issuer">· ASP Construction · Feb 2013</span></div>
 
   <h2>Honors &amp; Awards</h2>
@@ -448,6 +490,19 @@
     }
   </script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <script>
+    const toggle = document.getElementById('aboutToggle');
+    const expanded = document.getElementById('aboutExpanded');
+    toggle.addEventListener('click', function () {
+      const isOpen = expanded.classList.toggle('open');
+      toggle.classList.toggle('open', isOpen);
+      toggle.setAttribute('aria-expanded', isOpen);
+      toggle.querySelector('span') && (toggle.querySelector('span').textContent = isOpen ? 'Collapse bio' : 'Read full bio');
+      const textNode = [...toggle.childNodes].find(n => n.nodeType === 3);
+      if (textNode) textNode.textContent = isOpen ? ' Collapse bio' : ' Read full bio';
+    });
+  </script>
 
 </body>
 </html>
