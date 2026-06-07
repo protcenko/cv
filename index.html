@@ -1,530 +1,712 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Evgenii Protcenko — CV</title>
-  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap" rel="stylesheet">
+  <title>Evgenii Protcenko — Infrastructure TPM</title>
+  <meta name="description" content="Technical Infrastructure Program Manager focused on backbone capacity, systems integration, and operational execution at scale. 10 years at AWS." />
+  <meta property="og:title" content="Evgenii Protcenko — Infrastructure TPM" />
+  <meta property="og:description" content="Technical Infrastructure Program Manager delivering hyperscale backbone capacity programs and production-grade operational tooling." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://api.fontshare.com" />
+  <link href="https://api.fontshare.com/v2/css?f[]=cabinet-grotesk@400,500,700,800&display=swap" rel="stylesheet" />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'General Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-      font-size: 15px;
-      line-height: 1.6;
-      color: #1a1a1a;
-      background: #fff;
-      max-width: 860px;
-      margin: 48px auto;
-      padding: 0 24px 64px;
+    :root, [data-theme="dark"] {
+      --color-bg:              #0d0f11;
+      --color-surface:         #131518;
+      --color-surface-2:       #191c20;
+      --color-surface-offset:  #1e2226;
+      --color-surface-dynamic: #252a30;
+      --color-divider:         #252a30;
+      --color-border:          #2d3238;
+      --color-text:            #e4e8ec;
+      --color-text-muted:      #7e8b97;
+      --color-text-faint:      #4a5560;
+      --color-text-inverse:    #0d0f11;
+      --color-primary:         #2dd4bf;
+      --color-primary-hover:   #14b8a6;
+      --color-primary-active:  #0d9488;
+      --color-primary-dim:     rgba(45, 212, 191, 0.12);
+      --color-primary-glow:    rgba(45, 212, 191, 0.06);
+      --color-accent2:         #60a5fa;
+      --color-accent2-dim:     rgba(96, 165, 250, 0.10);
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.5);
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-xl: 1rem;
+      --radius-full: 9999px;
+      --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+      --font-display: 'Cabinet Grotesk', 'Inter', sans-serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+      --font-mono:    'DM Mono', 'Menlo', monospace;
+      --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+      --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+      --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+      --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+      --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+      --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+      --text-hero: clamp(2.75rem,  1rem    + 5.5vw,  6rem);
+      --space-1:  0.25rem; --space-2:  0.5rem;  --space-3:  0.75rem;
+      --space-4:  1rem;    --space-5:  1.25rem; --space-6:  1.5rem;
+      --space-8:  2rem;    --space-10: 2.5rem;  --space-12: 3rem;
+      --space-16: 4rem;    --space-20: 5rem;    --space-24: 6rem;
+      --content-narrow: 640px; --content-default: 960px; --content-wide: 1200px;
     }
 
-    h1 {
-      font-size: 28px;
-      font-weight: 700;
-      letter-spacing: -0.5px;
+    [data-theme="light"] {
+      --color-bg:              #f5f6f7;
+      --color-surface:         #ffffff;
+      --color-surface-2:       #f0f2f4;
+      --color-surface-offset:  #e8ebed;
+      --color-surface-dynamic: #dde1e4;
+      --color-divider:         #dde1e4;
+      --color-border:          #cdd2d7;
+      --color-text:            #111418;
+      --color-text-muted:      #4a5568;
+      --color-text-faint:      #9aa5b1;
+      --color-text-inverse:    #f5f6f7;
+      --color-primary:         #0d9488;
+      --color-primary-hover:   #0f766e;
+      --color-primary-active:  #115e59;
+      --color-primary-dim:     rgba(13, 148, 136, 0.10);
+      --color-primary-glow:    rgba(13, 148, 136, 0.05);
+      --color-accent2:         #2563eb;
+      --color-accent2-dim:     rgba(37, 99, 235, 0.08);
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.06);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.12);
     }
 
-    h2 {
-      font-size: 11px;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      color: #999;
-      margin: 40px 0 14px;
-      padding-bottom: 6px;
-      border-bottom: 1px solid #ebebeb;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; scroll-behavior: smooth; scroll-padding-top: 80px; }
+    body { min-height: 100dvh; font-family: var(--font-body); font-size: var(--text-base); line-height: 1.6; color: var(--color-text); background-color: var(--color-bg); }
+    img, picture, svg { display: block; max-width: 100%; }
+    ul[role="list"], ol[role="list"] { list-style: none; }
+    input, button, textarea, select { font: inherit; color: inherit; }
+    h1, h2, h3, h4 { text-wrap: balance; line-height: 1.15; }
+    p, li { text-wrap: pretty; }
+    button { cursor: pointer; background: none; border: none; }
+    ::selection { background: var(--color-primary-dim); color: var(--color-text); }
+    :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } }
+    a, button, [role="button"] { transition: color var(--transition-interactive), background var(--transition-interactive), border-color var(--transition-interactive), box-shadow var(--transition-interactive), opacity var(--transition-interactive); }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border-width: 0; }
+
+    /* ── Layout ── */
+    .container { max-width: var(--content-default); margin-inline: auto; padding-inline: clamp(var(--space-4), 4vw, var(--space-8)); }
+
+    /* ── NAV ── */
+    .nav { position: sticky; top: 0; z-index: 100; background: color-mix(in oklab, var(--color-bg) 85%, transparent); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-bottom: 1px solid var(--color-divider); }
+    .nav__inner { display: flex; align-items: center; justify-content: space-between; height: 60px; gap: var(--space-6); }
+    .nav__logo { display: flex; align-items: center; gap: var(--space-2); text-decoration: none; color: var(--color-text); }
+    .nav__logo-mark { width: 32px; height: 32px; flex-shrink: 0; }
+    .nav__name { font-family: var(--font-display); font-size: var(--text-sm); font-weight: 700; letter-spacing: -0.01em; }
+    .nav__links { display: flex; align-items: center; gap: var(--space-6); list-style: none; }
+    .nav__links a { font-size: var(--text-sm); font-weight: 500; color: var(--color-text-muted); text-decoration: none; }
+    .nav__links a:hover { color: var(--color-text); }
+    .nav__actions { display: flex; align-items: center; gap: var(--space-3); }
+    .theme-toggle { width: 36px; height: 36px; display: flex; align-items: center; justify-content: center; border-radius: var(--radius-md); color: var(--color-text-muted); }
+    .theme-toggle:hover { background: var(--color-surface-2); color: var(--color-text); }
+    @media (max-width: 640px) { .nav__links { display: none; } }
+
+    /* ── HERO ── */
+    .hero { padding-block: clamp(var(--space-16), 10vw, var(--space-24)); position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 70% 40%, var(--color-primary-glow), transparent 70%), radial-gradient(ellipse 40% 60% at 20% 70%, rgba(96,165,250,0.04), transparent 70%); pointer-events: none; }
+    .hero__eyebrow { display: inline-flex; align-items: center; gap: var(--space-2); font-family: var(--font-mono); font-size: var(--text-xs); font-weight: 500; color: var(--color-primary); letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: var(--space-5); }
+    .hero__eyebrow-dot { width: 6px; height: 6px; border-radius: var(--radius-full); background: var(--color-primary); animation: pulse 2.4s ease-in-out infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.75)} }
+    .hero__name { font-family: var(--font-display); font-size: var(--text-hero); font-weight: 800; letter-spacing: -0.03em; line-height: 1.0; color: var(--color-text); margin-bottom: var(--space-4); }
+    .hero__title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 600; letter-spacing: -0.02em; color: var(--color-primary); margin-bottom: var(--space-6); line-height: 1.2; }
+    .hero__summary { max-width: 60ch; font-size: var(--text-base); line-height: 1.7; color: var(--color-text-muted); margin-bottom: var(--space-8); }
+    .hero__summary strong { color: var(--color-text); font-weight: 600; }
+    .hero__ctas { display: flex; flex-wrap: wrap; gap: var(--space-3); }
+
+    /* ── BUTTONS ── */
+    .btn { display: inline-flex; align-items: center; gap: var(--space-2); padding: 0.625rem 1.25rem; font-size: var(--text-sm); font-weight: 600; border-radius: var(--radius-md); text-decoration: none; white-space: nowrap; }
+    .btn--primary { background: var(--color-primary); color: var(--color-text-inverse); }
+    .btn--primary:hover { background: var(--color-primary-hover); box-shadow: 0 0 20px var(--color-primary-dim); }
+    .btn--ghost { background: var(--color-surface-2); color: var(--color-text); border: 1px solid var(--color-border); }
+    .btn--ghost:hover { background: var(--color-surface-offset); border-color: var(--color-text-faint); }
+
+    /* ── SECTION ── */
+    .section { padding-block: clamp(var(--space-12), 7vw, var(--space-20)); border-top: 1px solid var(--color-divider); }
+    .section__header { margin-bottom: clamp(var(--space-8), 4vw, var(--space-12)); }
+    .section__label { font-family: var(--font-mono); font-size: var(--text-xs); font-weight: 500; color: var(--color-primary); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: var(--space-3); }
+    .section__title { font-family: var(--font-display); font-size: var(--text-xl); font-weight: 700; letter-spacing: -0.02em; color: var(--color-text); }
+
+    /* ── STRENGTHS ── */
+    .strengths-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr)); gap: var(--space-4); }
+    .strength-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5); position: relative; overflow: hidden; }
+    .strength-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--color-primary), transparent); opacity: 0; transition: opacity var(--transition-interactive); }
+    .strength-card:hover::after { opacity: 1; }
+    .strength-card:hover { border-color: color-mix(in oklab, var(--color-primary) 40%, var(--color-border)); }
+    .strength-card__icon { width: 36px; height: 36px; border-radius: var(--radius-md); background: var(--color-primary-dim); display: flex; align-items: center; justify-content: center; margin-bottom: var(--space-4); color: var(--color-primary); }
+    .strength-card__title { font-family: var(--font-display); font-size: var(--text-base); font-weight: 700; color: var(--color-text); margin-bottom: var(--space-2); }
+    .strength-card__desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.5; }
+
+    /* ── IMPACT ── */
+    .impact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(280px, 100%), 1fr)); gap: var(--space-4); }
+    .impact-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-3); }
+    .impact-card__number { font-family: var(--font-display); font-size: var(--text-2xl); font-weight: 800; letter-spacing: -0.03em; line-height: 1; color: var(--color-primary); }
+    .impact-card__label { font-size: var(--text-sm); font-weight: 600; color: var(--color-text); }
+    .impact-card__desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.5; }
+
+    /* ── WORK ── */
+    .work-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(300px, 100%), 1fr)); gap: var(--space-4); }
+    .work-card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); padding: var(--space-5); display: flex; flex-direction: column; gap: var(--space-3); }
+    .work-card:hover { border-color: color-mix(in oklab, var(--color-primary) 30%, var(--color-border)); box-shadow: var(--shadow-md); }
+    .work-card__header { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-3); }
+    .work-card__title { font-family: var(--font-display); font-size: var(--text-base); font-weight: 700; color: var(--color-text); }
+    .work-card__desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; }
+    .work-card__stack { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: auto; }
+    .tag { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-muted); background: var(--color-surface-offset); border: 1px solid var(--color-border); padding: 0.2rem 0.5rem; border-radius: var(--radius-sm); }
+    .work-card__metric { font-size: var(--text-xs); font-weight: 600; color: var(--color-primary); background: var(--color-primary-dim); border-radius: var(--radius-sm); padding: 0.25rem 0.625rem; display: inline-block; }
+
+    /* ── EXPERIENCE ── */
+    .experience-list { display: flex; flex-direction: column; gap: var(--space-1); }
+    .exp-item { display: grid; grid-template-columns: auto 1fr; gap: 0 var(--space-4); padding: var(--space-5) 0; border-bottom: 1px solid var(--color-divider); }
+    .exp-item:last-child { border-bottom: none; }
+    .exp-item__timeline { display: flex; flex-direction: column; align-items: center; width: 48px; flex-shrink: 0; }
+    .exp-item__dot { width: 10px; height: 10px; border-radius: var(--radius-full); background: var(--color-primary); border: 2px solid var(--color-primary-dim); flex-shrink: 0; margin-top: 6px; }
+    .exp-item__dot--muted { background: var(--color-surface-dynamic); border-color: var(--color-border); }
+    .exp-item__line { width: 1px; flex: 1; background: var(--color-divider); margin-top: 6px; }
+    .exp-item__role { font-family: var(--font-display); font-size: var(--text-base); font-weight: 700; color: var(--color-text); margin-bottom: var(--space-1); }
+    .exp-item__org { font-size: var(--text-sm); font-weight: 600; color: var(--color-primary); margin-bottom: var(--space-1); }
+    .exp-item__period { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-faint); margin-bottom: var(--space-3); }
+    .exp-item__desc { font-size: var(--text-sm); color: var(--color-text-muted); line-height: 1.6; max-width: 64ch; }
+    .exp-item__highlights { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-3); }
+    .highlight-pill { font-size: var(--text-xs); font-weight: 500; color: var(--color-text-muted); background: var(--color-surface-offset); border: 1px solid var(--color-border); padding: 0.2rem 0.6rem; border-radius: var(--radius-full); }
+    .exp-more { padding: var(--space-4) 0; font-size: var(--text-sm); color: var(--color-text-muted); }
+    .exp-more a { color: var(--color-primary); text-decoration: none; font-weight: 500; }
+    .exp-more a:hover { text-decoration: underline; }
+
+    /* ── CREDENTIALS ── */
+    .creds-row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: stretch; }
+    .cred-badge { display: flex; align-items: center; gap: var(--space-3); background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-md); padding: var(--space-3) var(--space-4); }
+    .cred-badge__icon { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; color: var(--color-primary); flex-shrink: 0; }
+    .cred-badge__label { font-size: var(--text-xs); font-weight: 600; color: var(--color-text); }
+    .cred-badge__sub { font-size: var(--text-xs); color: var(--color-text-muted); margin-top: 2px; }
+
+    /* ── EDUCATION ── */
+    .edu-list { display: flex; flex-direction: column; gap: var(--space-4); }
+    .edu-item { display: flex; gap: var(--space-4); align-items: flex-start; }
+    .edu-item__icon { width: 36px; height: 36px; border-radius: var(--radius-md); background: var(--color-surface-offset); display: flex; align-items: center; justify-content: center; color: var(--color-text-muted); flex-shrink: 0; margin-top: 2px; }
+    .edu-item__degree { font-size: var(--text-sm); font-weight: 600; color: var(--color-text); }
+    .edu-item__school { font-size: var(--text-sm); color: var(--color-text-muted); }
+    .edu-item__meta { font-family: var(--font-mono); font-size: var(--text-xs); color: var(--color-text-faint); margin-top: 2px; }
+
+    /* ── FOOTER ── */
+    .footer { border-top: 1px solid var(--color-divider); padding-block: var(--space-8); }
+    .footer__inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-4); }
+    .footer__name { font-family: var(--font-display); font-size: var(--text-base); font-weight: 700; color: var(--color-text); margin-bottom: var(--space-1); }
+    .footer__tagline { font-size: var(--text-xs); color: var(--color-text-muted); }
+    .footer__links { display: flex; flex-wrap: wrap; gap: var(--space-3); list-style: none; }
+    .footer__links a { display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-sm); font-weight: 500; color: var(--color-text-muted); text-decoration: none; }
+    .footer__links a:hover { color: var(--color-primary); }
+
+    /* ── ANIMATIONS ── */
+    .fade-in { opacity: 1; }
+    @supports (animation-timeline: scroll()) {
+      .fade-in { opacity: 0; animation: reveal-fade linear both; animation-timeline: view(); animation-range: entry 0% entry 80%; }
     }
+    @keyframes reveal-fade { to { opacity: 1; } }
 
-    .subtitle {
-      color: #555;
-      font-size: 16px;
-      margin-top: 5px;
-      font-weight: 500;
-    }
-
-    .contact {
-      margin-top: 10px;
-      font-size: 13px;
-      color: #555;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px 0;
-      align-items: center;
-    }
-
-    .contact a {
-      color: #222;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 2px 6px;
-      border-radius: 4px;
-      transition: color 0.15s ease;
-    }
-
-    .contact a:hover { color: #000; }
-
-    .contact a svg {
-      width: 16px;
-      height: 16px;
-      display: block;
-    }
-
-    .contact .sep {
-      color: #ddd;
-      margin: 0 4px;
-      user-select: none;
-    }
-
-    .contact .location {
-      color: #666;
-      padding: 2px 0;
-    }
-
-    /* Summary */
-    .summary-short p {
-      color: #333;
-      font-size: 14.5px;
-      line-height: 1.65;
-      max-width: 72ch;
-      margin-bottom: 8px;
-    }
-
-    .specialties {
-      color: #888;
-      font-size: 13px;
-      line-height: 1.7;
-      max-width: 72ch;
-      margin-top: 6px;
-    }
-
-    /* About expandable */
-    .about-toggle {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      margin-top: 12px;
-      font-size: 13px;
-      color: #888;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 0;
-      font-family: inherit;
-      transition: color 0.15s ease;
-    }
-
-    .about-toggle:hover { color: #333; }
-
-    .about-toggle svg {
-      width: 14px;
-      height: 14px;
-      transition: transform 0.2s ease;
-      flex-shrink: 0;
-    }
-
-    .about-toggle.open svg {
-      transform: rotate(180deg);
-    }
-
-    .about-expanded {
-      display: none;
-      margin-top: 14px;
-      padding: 16px 18px;
-      background: #f9f9f8;
-      border-radius: 8px;
-      border: 1px solid #ebebeb;
-    }
-
-    .about-expanded.open {
-      display: block;
-    }
-
-    .about-expanded p {
-      color: #333;
-      font-size: 14px;
-      line-height: 1.7;
-      max-width: 70ch;
-      margin-bottom: 12px;
-    }
-
-    .about-expanded p:last-child { margin-bottom: 0; }
-
-    /* Roles */
-    .role { margin-bottom: 22px; }
-
-    .role-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 4px;
-    }
-
-    .role-title {
-      font-weight: 600;
-      font-size: 15px;
-    }
-
-    .role-company {
-      color: #666;
-      font-size: 13.5px;
-      margin-top: 2px;
-    }
-
-    .role-date {
-      font-size: 12.5px;
-      color: #999;
-      white-space: nowrap;
-    }
-
-    ul {
-      margin-top: 8px;
-      padding-left: 18px;
-    }
-
-    ul li {
-      margin-bottom: 5px;
-      color: #333;
-      font-size: 14px;
-      line-height: 1.55;
-    }
-
-    .cert { margin-bottom: 7px; font-size: 14px; }
-    .cert-name { font-weight: 500; }
-    .cert-issuer { color: #999; font-size: 13px; }
-    .badge-wrap {
-  margin-top: 10px;
-  line-height: 0;
-}
-
-    #google_translate_element {
-      position: fixed;
-      top: 16px;
-      right: 16px;
-      z-index: 999;
-      background: #fff;
-      border: 1px solid #e5e5e5;
-      border-radius: 6px;
-      padding: 4px 8px;
-      font-size: 13px;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-    }
-
-    .goog-te-banner-frame { display: none !important; }
-    body { top: 0 !important; }
-
+    /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
-      body { margin: 24px auto; font-size: 14px; }
-      .role-header { flex-direction: column; gap: 2px; }
-      .role-date { margin-top: 1px; }
-    }
-
-    @media print {
-      body { margin: 24px auto; font-size: 13px; }
-      h2 { margin-top: 24px; }
-      #google_translate_element { display: none; }
-      a { color: #333 !important; }
-      .about-toggle { display: none; }
-      .about-expanded { display: block; border: none; background: none; padding: 0; margin-top: 8px; }
-      .badge-wrap { display: none; }
+      .hero__name { letter-spacing: -0.02em; }
+      .hero__ctas { flex-direction: column; align-items: flex-start; }
+      .exp-item { grid-template-columns: 1fr; }
+      .exp-item__timeline { display: none; }
+      .footer__inner { flex-direction: column; align-items: flex-start; }
     }
   </style>
 </head>
+
 <body>
 
-  <h1>Evgenii Protcenko, Ph.D., PMP</h1>
-  <div class="subtitle">Technical Infrastructure Program Manager</div>
+<a href="#main" class="sr-only">Skip to main content</a>
 
-  <div class="contact">
-        <a id="email-link" aria-label="Email" style="cursor:pointer">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M4 6h16v12H4z" fill="none" stroke="currentColor" stroke-width="1.8"></path>
-        <path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8"></path>
-      </svg>
-    </a>
-    <span class="sep">·</span>
-    <span class="location">Seattle, WA</span>
-    <span class="sep">·</span>
-    <a href="https://linkedin.com/in/evgeniip" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M6.5 8.5v9" stroke="currentColor" stroke-width="1.8" fill="none"></path>
-        <path d="M6.5 5.5h.01" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"></path>
-        <path d="M11 11.5v6" stroke="currentColor" stroke-width="1.8" fill="none"></path>
-        <path d="M11 13c.8-1 1.8-1.7 3.2-1.7 2.1 0 3.3 1.4 3.3 4V17.5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"></path>
-      </svg>
-    </a>
-    <span class="sep">·</span>
-    <a href="https://github.com/protcenko" target="_blank" rel="noopener noreferrer" title="GitHub" aria-label="GitHub">
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M12 3.8a8.2 8.2 0 0 0-2.6 16c.4.1.5-.2.5-.4v-1.5c-2.1.5-2.5-.9-2.5-.9-.4-.9-.9-1.1-.9-1.1-.8-.5.1-.5.1-.5.9.1 1.3.9 1.3.9.8 1.3 2.1.9 2.6.7.1-.6.3-.9.6-1.1-1.7-.2-3.6-.8-3.6-3.8 0-.8.3-1.5.8-2-.1-.2-.4-1 .1-2.1 0 0 .7-.2 2.2.8a7.6 7.6 0 0 1 4 0c1.5-1 2.2-.8 2.2-.8.5 1.1.2 1.9.1 2.1.5.5.8 1.2.8 2 0 3-1.9 3.6-3.7 3.8.3.3.6.8.6 1.6v2.4c0 .2.1.5.5.4A8.2 8.2 0 0 0 12 3.8z" fill="currentColor"></path>
-      </svg>
-    </a>
-  </div>
-
-  <h2>Summary</h2>
-
-  <div class="summary-short">
-    <p>Technical Infrastructure Program Manager with 10 years at AWS delivering hyperscale network backbone capacity programs and mission-critical infrastructure at global scale. Ph.D. in Engineering, PMP-certified, and proficient in Rust, TypeScript, and Python. Fluent in English, French, and Russian.</p>
-    <p class="specialties"><strong>Specialties:</strong> Global Infrastructure Program Management · Network Backbone Topology · Risk &amp; Issue Management · Cross-Functional Stakeholder Leadership · Network Troubleshooting · GenAI Tools &amp; Automation · Custom Operational Tooling (Rust · TypeScript · Python) · Data Center Delivery · Mission-Critical Facilities · Vendor &amp; Colocation Management · Capital Project Execution · Structured Cabling · Regulatory Compliance</p>
-  </div>
-
-    <button class="about-toggle" id="aboutToggle" aria-expanded="false" aria-controls="aboutExpanded">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-      <path d="M6 9l6 6 6-6"></path>
-    </svg>
-  </button>
-
-  <div class="about-expanded" id="aboutExpanded" role="region" aria-labelledby="aboutToggle">
-    <p>I lead complex, cross-continental infrastructure delivery end to end — from demand intake through physical-layer validation and operational handoff — driving significant cost savings through fiber-migration programs and innovative network design across data centers in North America and Europe.</p>
-    <p>I also build production-grade operational tooling in Rust, TypeScript, and Python. Two recent examples: a native macOS tracker for backbone order management and reporting, and a physical-layer (L1) fiber-path diagnostic tool that turned weeks-stalled deployments around in days. Together these represent 30,000+ lines of production code with hundreds of automated tests, built using AI-accelerated workflows while delivering full-time on my program portfolio. The L1 diagnostic tool cut fiber-path analysis time by 80–90% in production pilots; the order tracker reduced weekly reporting from roughly half an hour to a single click and consolidated five separate manual tools into one.</p>
-    <p>PhD in Engineering, PMP-certified, and technically grounded across the full infrastructure stack. Fluent in English, French, and Russian.</p>
-  </div>
-
-  <h2>Experience</h2>
-
-  <div class="role">
-    <div class="role-header">
-      <div>
-        <div class="role-title">Technical Infrastructure Program Manager</div>
-        <div class="role-company">Amazon Web Services (AWS) — Global Topology and Development Engineering</div>
+<!-- ══ NAV ══ -->
+<nav class="nav" aria-label="Primary navigation">
+  <div class="container">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo" aria-label="Evgenii Protcenko — home">
+        <svg class="nav__logo-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+          <rect width="32" height="32" rx="6" fill="var(--color-primary-dim)"/>
+          <path d="M6 9h9v2H8v4h6v2H8v4h7v2H6V9z" fill="var(--color-primary)"/>
+          <path d="M17 9h4.5c2.2 0 3.5 1.3 3.5 3.5S23.7 16 21.5 16H19v7h-2V9zm2 5.5h2.5c.8 0 1.5-.5 1.5-1.5s-.7-1.5-1.5-1.5H19v3z" fill="var(--color-primary)"/>
+        </svg>
+        <span class="nav__name">Evgenii Protcenko</span>
+      </a>
+      <ul class="nav__links" role="list">
+        <li><a href="#strengths">Strengths</a></li>
+        <li><a href="#impact">Impact</a></li>
+        <li><a href="#work">Work</a></li>
+        <li><a href="#experience">Experience</a></li>
+      </ul>
+      <div class="nav__actions">
+        <button class="theme-toggle" data-theme-toggle aria-label="Switch to light mode">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+        </button>
       </div>
-      <div class="role-date">Dec 2024 – Present · Seattle, WA</div>
     </div>
-    <ul>
-      <li>Led end-to-end delivery of large-scale backbone capacity programs across inter-regional and intercontinental data centers across North America and Europe.</li>
-      <li>Managed the full circuit lifecycle — demand intake, physical-layer validation, and operational handoff — across multiple concurrent programs.</li>
-      <li>Drove documented recurring-cost savings through leased-to-owned fiber-migration programs.</li>
-      <li>Built and rolled out a native macOS backbone-orders tracker (Rust/Svelte/SQLite, ~160 automated tests) consolidating multiple network data sources; cut weekly reporting from ~30 min to a single click.</li>
-      <li>Built a physical-layer fiber-path diagnostic tool reducing circuit analysis time by 80–90% in production pilots; resolved weeks-stalled deployments in days; added optical-power and encryption-health checks over internal APIs to eliminate manual device logins.</li>
-      <li>Deployed browser-automation tooling that cut routine per-order validation and device checks from minutes to seconds — adopted daily by the regional team.</li>
-      <li>Leveraged AI-accelerated development to ship multiple production tools totaling 30,000+ lines of code while maintaining full-time program delivery.</li>
-      <li>Drove cross-team platform-improvement initiatives that reduced deployment cycle times across provisioning, automation, and change-management systems.</li>
-      <li>Provided critical-path support for machine-learning infrastructure and major customer capacity programs, coordinating across multiple internal teams and external carriers under strict deadlines.</li>
-    </ul>
   </div>
+</nav>
 
-  <div class="role">
-    <div class="role-header">
-      <div>
-        <div class="role-title">Edge Data Center Projects and Operations Lead Engineer</div>
-        <div class="role-company">Amazon Web Services (AWS)</div>
+<!-- ══ MAIN ══ -->
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero__eyebrow">
+        <span class="hero__eyebrow-dot" aria-hidden="true"></span>
+        Open to senior infrastructure TPM roles
       </div>
-      <div class="role-date">Jul 2020 – Dec 2024 · Montreal, QC</div>
-    </div>
-    <ul>
-      <li>Promoted to L5 in July 2021. Governed scaling programs and operations for network infrastructure across 130+ concurrent mission-critical data center locations in Canada and the U.S., driving multi-million-dollar documented cost savings through innovative capacity design and strategic vendor management.</li>
-      <li>Generated significant total documented savings across the EDGE DCO era through four key initiatives: equipment recovery via RMA, recurring annual savings through fiber patch cord innovation, facility optimization programs, and network design improvements.</li>
-      <li>Led end-to-end network project implementation: intake and evaluation, scope definition, procurement, and stakeholder management.</li>
-      <li>Served as single point of contact in colocation environments to resolve cross-connect requests, operational issues, and network scaling activities.</li>
-      <li>Managed multi-vendor activities across data center and colocation locations, ensuring conformity to standards through training, quality assurance, and recurring business reviews.</li>
-      <li>Led emergency international deployments to Frankfurt, Mumbai, and Bahrain; recognized for highly proactive approach during COVID-19 capacity scaling response.</li>
-      <li>Served as Subject Matter Expert for 14 training modules in the global Infrastructure Delivery learning path.</li>
-    </ul>
-  </div>
-
-  <div class="role">
-    <div class="role-header">
-      <div>
-        <div class="role-title">Data Center Infrastructure Delivery Engineer</div>
-        <div class="role-company">Amazon Web Services (AWS)</div>
+      <h1 class="hero__name">Evgenii<br>Protcenko</h1>
+      <p class="hero__title">Technical Infrastructure Program Manager<br>for backbone, systems integration, and operational execution</p>
+      <p class="hero__summary">
+        <strong>10 years at AWS</strong> delivering hyperscale backbone capacity programs and building production-grade operational tooling in Rust, TypeScript, and Python.
+        I specialize in <strong>end-to-end delivery</strong> — intake, validation, handoff, risk, and vendor coordination — and building systems that remove operational friction at scale.
+      </p>
+      <div class="hero__ctas">
+        <a href="https://linkedin.com/in/evgeniip" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          LinkedIn
+        </a>
+        <a href="#experience" class="btn btn--ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          Experience
+        </a>
+        <a href="#work" class="btn btn--ghost">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          Tooling
+        </a>
       </div>
-      <div class="role-date">Aug 2016 – Jul 2020 · Montreal, QC</div>
     </div>
-    <ul>
-      <li>Delivered data center cabling infrastructure and network scaling programs across AWS global locations, driving multi-million-dollar documented cost savings through design innovation and operational discipline.</li>
-      <li>Co-created a rack density redesign enabling stranded capacity utilization within existing infrastructure — resulting in 446 racks deployed globally and significant savings on construction and maintenance.</li>
-      <li>Defined, built, and launched strategic cabling and network scaling projects addressing ad hoc business needs across multiple global locations.</li>
-      <li>Reduced costs through cabling layout optimization, rack space utilization improvements, and reuse of core network racks.</li>
-      <li>Managed multi-vendor activities across data center and colocation locations, ensuring conformity to Amazon standards through training, quality assurance, and recurring business reviews.</li>
-      <li>Identified vendor inefficiencies and provided solutions that improved delivery quality and operational throughput.</li>
-      <li>Facilitated kick-offs and reviews between internal and external stakeholders, defining project scope, requirements, issues, and risks.</li>
-      <li>Delivered 10+ room buildouts; performed reference cabling design, commissioning, and quality assurance.</li>
-      <li>Executed international project deployments to Frankfurt, Mumbai, Dulles, and Bahrain for global infrastructure build programs.</li>
-    </ul>
-  </div>
+  </section>
 
-  <div class="role">
-    <div class="role-header">
-      <div>
-        <div class="role-title">Data Center Cabling Infrastructure Technician</div>
-        <div class="role-company">E2 Optics · Contract</div>
+  <!-- CORE STRENGTHS -->
+  <section class="section" id="strengths">
+    <div class="container">
+      <header class="section__header">
+        <p class="section__label">Core strengths</p>
+        <h2 class="section__title">What I bring to every program</h2>
+      </header>
+      <div class="strengths-grid">
+
+        <div class="strength-card fade-in">
+          <div class="strength-card__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <h3 class="strength-card__title">Infrastructure TPM</h3>
+          <p class="strength-card__desc">End-to-end program ownership from intake through delivery, validation, and operational handoff across multi-team, multi-vendor environments.</p>
+        </div>
+
+        <div class="strength-card fade-in">
+          <div class="strength-card__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3 class="strength-card__title">Backbone delivery</h3>
+          <p class="strength-card__desc">Hyperscale backbone capacity programs: fiber-optic circuit lifecycle, DWDM optical topology, and 174.6T delivered in 2025 across NA, EMEA, and APAC.</p>
+        </div>
+
+        <div class="strength-card fade-in">
+          <div class="strength-card__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <h3 class="strength-card__title">Systems integration</h3>
+          <p class="strength-card__desc">Connecting provisioning, operations, field execution, and tooling into a single reliable delivery workflow. Operational troubleshooting from physical layer to program level.</p>
+        </div>
+
+        <div class="strength-card fade-in">
+          <div class="strength-card__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <h3 class="strength-card__title">Operational tooling</h3>
+          <p class="strength-card__desc">Production-grade tools in Rust, TypeScript, and Python — built independently while executing a full-time TPM workload — reducing team analysis time by 80–90%.</p>
+        </div>
+
+        <div class="strength-card fade-in">
+          <div class="strength-card__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h3 class="strength-card__title">Cross-functional execution</h3>
+          <p class="strength-card__desc">Managing 200+ coordination channels, a 6,600+ ticket footprint, and 15+ resolver groups alongside external carriers — operational throughput at org scale.</p>
+        </div>
+
+        <div class="strength-card fade-in">
+          <div class="strength-card__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+          </div>
+          <h3 class="strength-card__title">Cost optimization</h3>
+          <p class="strength-card__desc">$16.5M in documented infrastructure savings, $207,600 in circuit migration savings in 2025, and an active $553,000+ additional pipeline under management.</p>
+        </div>
+
       </div>
-      <div class="role-date">Feb 2016 – Aug 2016 · Montreal, QC</div>
     </div>
-    <ul>
-      <li>Deployed, troubleshot, and scaled network cabling infrastructure across AWS data centers on a contract basis.</li>
-    </ul>
-  </div>
+  </section>
 
-  <div class="role">
-    <div class="role-header">
-      <div>
-        <div class="role-title">Field Service Technician</div>
-        <div class="role-company">Bell Technical Solutions · Contract</div>
+  <!-- SELECTED IMPACT -->
+  <section class="section" id="impact">
+    <div class="container">
+      <header class="section__header">
+        <p class="section__label">Selected impact</p>
+        <h2 class="section__title">Measured delivery at scale</h2>
+      </header>
+      <div class="impact-grid">
+
+        <div class="impact-card fade-in">
+          <div class="impact-card__number">174.6T</div>
+          <div class="impact-card__label">Backbone capacity delivered in 2025</div>
+          <p class="impact-card__desc">Spanning 30+ sites across North America, EMEA, and Asia-Pacific. 184.8T in orders ingested for cabling deployment in H2 alone.</p>
+        </div>
+
+        <div class="impact-card fade-in">
+          <div class="impact-card__number">$16.5M</div>
+          <div class="impact-card__label">Lifetime documented infrastructure savings</div>
+          <p class="impact-card__desc">From rack density optimization, inventory recovery, fiber-layout design improvements, and cabling optimization across 5 countries.</p>
+        </div>
+
+        <div class="impact-card fade-in">
+          <div class="impact-card__number">80–90%</div>
+          <div class="impact-card__label">Reduction in physical-layer analysis time</div>
+          <p class="impact-card__desc">Custom fiber-path diagnostic tooling cut 3.5–6 hour manual investigations to under 30 minutes per circuit validation cycle.</p>
+        </div>
+
+        <div class="impact-card fade-in">
+          <div class="impact-card__number">1-click</div>
+          <div class="impact-card__label">Weekly leadership reporting</div>
+          <p class="impact-card__desc">Native macOS order-tracking application replaced a 30-minute manual assembly process. In daily use across the backbone operations team.</p>
+        </div>
+
+        <div class="impact-card fade-in">
+          <div class="impact-card__number">30,000+</div>
+          <div class="impact-card__label">Lines of production tooling</div>
+          <p class="impact-card__desc">Five independently deployed tools in Rust, TypeScript, Python, Svelte, and Bash — all delivered while running a full-time program portfolio.</p>
+        </div>
+
+        <div class="impact-card fade-in">
+          <div class="impact-card__number">$207K</div>
+          <div class="impact-card__label">Circuit migration savings in 2025</div>
+          <p class="impact-card__desc">From leased-to-owned optical circuit migrations, eliminating recurring carrier costs. Active pipeline exceeds $553,000 in additional savings.</p>
+        </div>
+
       </div>
-      <div class="role-date">Mar 2015 – Jun 2016 · Montreal, QC</div>
     </div>
-    <ul>
-      <li>Independently installed, maintained, and repaired Bell's ISP and OSP cabling infrastructure for residential and business customers, including commercial deployments at McGill University and IBM's Montreal data center.</li>
-      <li>Twice awarded for delivering excellent customer service (Merit Encore, Service First).</li>
-    </ul>
-  </div>
+  </section>
 
-  <div class="role">
-    <div class="role-header">
-      <div>
-        <div class="role-title">Cabling Technician</div>
-        <div class="role-company">The State Group Inc. · Internship</div>
+  <!-- SELECTED WORK -->
+  <section class="section" id="work">
+    <div class="container">
+      <header class="section__header">
+        <p class="section__label">Selected work</p>
+        <h2 class="section__title">Tooling built in production</h2>
+      </header>
+      <div class="work-grid">
+
+        <article class="work-card fade-in">
+          <div class="work-card__header">
+            <h3 class="work-card__title">Backbone Order Tracker</h3>
+          </div>
+          <p class="work-card__desc">
+            Native macOS desktop application replacing the team's spreadsheet-based order tracker. Integrates live circuit state inspection, device status monitoring, automated Slack channel management, and one-click leadership reporting with a full test suite.
+          </p>
+          <div>
+            <span class="work-card__metric">30 min → 1-click weekly report</span>
+          </div>
+          <div class="work-card__stack">
+            <span class="tag">Tauri v2</span>
+            <span class="tag">Rust</span>
+            <span class="tag">Svelte 5</span>
+            <span class="tag">TypeScript</span>
+            <span class="tag">SQLite</span>
+          </div>
+        </article>
+
+        <article class="work-card fade-in">
+          <div class="work-card__header">
+            <h3 class="work-card__title">L1 Fiber-Path Diagnostic Tool</h3>
+          </div>
+          <p class="work-card__desc">
+            End-to-end fiber-path checker with 21 analysis capabilities across 5 device platforms. Performs cross-origin detection, power cascade analysis, mispatch identification, and multi-circuit correlation. Resolved months-stalled circuit validations in days — filling gaps the existing toolchain couldn't cover.
+          </p>
+          <div>
+            <span class="work-card__metric">3.5–6 hrs → 30 min per validation cycle</span>
+          </div>
+          <div class="work-card__stack">
+            <span class="tag">Bash/expect</span>
+            <span class="tag">Python</span>
+            <span class="tag">Tauri</span>
+            <span class="tag">Svelte</span>
+          </div>
+        </article>
+
+        <article class="work-card fade-in">
+          <div class="work-card__header">
+            <h3 class="work-card__title">Circuit Lifecycle Browser Tool</h3>
+          </div>
+          <p class="work-card__desc">
+            Browser automation script surfacing circuit lifecycle state, capacity breakdown, cabling information, and sync status directly on order management pages. Adopted by the team without a mandated rollout.
+          </p>
+          <div>
+            <span class="work-card__metric">5–10 min → 10 sec per order check</span>
+          </div>
+          <div class="work-card__stack">
+            <span class="tag">JavaScript</span>
+            <span class="tag">Browser automation</span>
+          </div>
+        </article>
+
+        <article class="work-card fade-in">
+          <div class="work-card__header">
+            <h3 class="work-card__title">Global Device Status Monitor</h3>
+          </div>
+          <p class="work-card__desc">
+            Maps 88 site prefixes across 29 regional network management instances globally. Extracts device hostnames from cutsheets and surfaces operational status before devices become timeline blockers. JSON export feeds into the order tracker automatically.
+          </p>
+          <div>
+            <span class="work-card__metric">15–30 min → 30 sec per cutsheet</span>
+          </div>
+          <div class="work-card__stack">
+            <span class="tag">JavaScript</span>
+            <span class="tag">Browser automation</span>
+            <span class="tag">REST API</span>
+          </div>
+        </article>
+
+        <article class="work-card fade-in">
+          <div class="work-card__header">
+            <h3 class="work-card__title">Backbone Operations Slack App</h3>
+          </div>
+          <p class="work-card__desc">
+            Custom Slack application automating coordination channel lifecycle for backbone path orders — create, configure, notify, and archive with one click. 26 integrated scopes. Embedded directly into the order tracker.
+          </p>
+          <div>
+            <span class="work-card__metric">5 min manual setup → automated per order</span>
+          </div>
+          <div class="work-card__stack">
+            <span class="tag">Slack API</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">26 scopes</span>
+          </div>
+        </article>
+
       </div>
-      <div class="role-date">Jun 2014 – Sep 2014 · Montreal, QC</div>
+      <p style="margin-top: var(--space-5); font-size: var(--text-xs); color: var(--color-text-faint);">
+        All tools are proprietary internal production systems presented as operational case studies.
+      </p>
     </div>
-    <ul>
-      <li>Deployed and troubleshot ISP cabling infrastructure in commercial environments including McGill University, Dawson College, and IBM's Montreal data center.</li>
-    </ul>
-  </div>
+  </section>
 
-  <div class="role">
-    <div class="role-header">
-      <div>
-        <div class="role-title">Career Transition &amp; International Relocation</div>
-        <div class="role-company">Self-directed</div>
+  <!-- EXPERIENCE SNAPSHOT -->
+  <section class="section" id="experience">
+    <div class="container">
+      <header class="section__header">
+        <p class="section__label">Experience snapshot</p>
+        <h2 class="section__title">Career at AWS — 10 years</h2>
+      </header>
+      <div class="experience-list">
+
+        <div class="exp-item fade-in">
+          <div class="exp-item__timeline">
+            <div class="exp-item__dot"></div>
+            <div class="exp-item__line"></div>
+          </div>
+          <div class="exp-item__content">
+            <h3 class="exp-item__role">Tech Infra Program Manager II — Backbone Capacity Engineering</h3>
+            <p class="exp-item__org">Amazon Web Services · Seattle, WA</p>
+            <p class="exp-item__period">Dec 2024 — Present</p>
+            <p class="exp-item__desc">
+              End-to-end ownership of hyperscale backbone capacity programs across NA, EMEA, and APAC. Delivers 100T+ of fiber-optic capacity annually, manages a leased-to-owned optical circuit migration pipeline for MRC cost reduction, and builds production tooling that improves delivery speed and visibility for the operations team.
+            </p>
+            <div class="exp-item__highlights">
+              <span class="highlight-pill">174.6T delivered 2025</span>
+              <span class="highlight-pill">$207K MRC savings</span>
+              <span class="highlight-pill">5 production tools</span>
+              <span class="highlight-pill">15 platform improvements</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item fade-in">
+          <div class="exp-item__timeline">
+            <div class="exp-item__dot"></div>
+            <div class="exp-item__line"></div>
+          </div>
+          <div class="exp-item__content">
+            <h3 class="exp-item__role">Edge Data Center Projects & Operations Lead Engineer (L5)</h3>
+            <p class="exp-item__org">Amazon Web Services · Montreal, QC</p>
+            <p class="exp-item__period">Aug 2020 — Dec 2024</p>
+            <p class="exp-item__desc">
+              Scaled and operated 130+ mission-critical data center locations across the Americas. Co-created a rack density redesign program enabling stranded-capacity utilization globally. Led emergency deployments including a month-long Frankfurt site flip and COVID-19 EC2 ring scaling response.
+            </p>
+            <div class="exp-item__highlights">
+              <span class="highlight-pill">$16.5M global savings</span>
+              <span class="highlight-pill">$1.4M inventory recovery</span>
+              <span class="highlight-pill">130+ sites</span>
+              <span class="highlight-pill">L5 promoted Jul 2021</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="exp-item fade-in">
+          <div class="exp-item__timeline">
+            <div class="exp-item__dot"></div>
+            <div class="exp-item__line"></div>
+          </div>
+          <div class="exp-item__content">
+            <h3 class="exp-item__role">Data Center Infrastructure Delivery Engineer (L4)</h3>
+            <p class="exp-item__org">Amazon Web Services · Montreal, QC</p>
+            <p class="exp-item__period">Aug 2016 — Aug 2020</p>
+            <p class="exp-item__desc">
+              Hands-on fiber-optic infrastructure delivery and global network scaling programs across AWS facilities in Canada, Germany, India, and Bahrain. Physical-layer expertise from rack builds through commissioning directly underpins current backbone engineering work.
+            </p>
+            <div class="exp-item__highlights">
+              <span class="highlight-pill">Fiber optic splicing & commissioning</span>
+              <span class="highlight-pill">Global deployments</span>
+              <span class="highlight-pill">6 countries</span>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="role-date">2012 – 2015 · Canada</div>
+      <p class="exp-more">
+        Earlier experience in telecommunications field operations available on request. &nbsp;
+        <a href="https://linkedin.com/in/evgeniip" target="_blank" rel="noopener noreferrer">Full career history on LinkedIn →</a>
+      </p>
     </div>
-    <ul>
-      <li>Completed immigration and credential recognition process following relocation from Russia to Canada.</li>
-      <li>Pursued vocational retraining in telecommunications; obtained BELDEN IBDN certifications in optical fiber and copper media and Construction Health and Safety / WHMIS certification.</li>
-    </ul>
-  </div>
+  </section>
 
-  <div class="role">
-    <div class="role-header">
-      <div>
-        <div class="role-title">Civil Servant</div>
-        <div class="role-company">Federal Service for Technical and Export Control (FSTEC of Russia)</div>
+  <!-- CREDENTIALS -->
+  <section class="section">
+    <div class="container">
+      <header class="section__header" style="margin-bottom: var(--space-6);">
+        <p class="section__label">Credentials</p>
+        <h2 class="section__title">Certifications &amp; education</h2>
+      </header>
+
+      <div class="creds-row" style="margin-bottom: var(--space-8);">
+
+        <div class="cred-badge fade-in">
+          <div class="cred-badge__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div>
+            <div class="cred-badge__label">Project Management Professional (PMP)</div>
+            <div class="cred-badge__sub">Project Management Institute</div>
+          </div>
+        </div>
+
+        <div class="cred-badge fade-in">
+          <div class="cred-badge__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          </div>
+          <div>
+            <div class="cred-badge__label">BICSI ICT Design Fundamentals</div>
+            <div class="cred-badge__sub">BICSI</div>
+          </div>
+        </div>
+
+        <div class="cred-badge fade-in">
+          <div class="cred-badge__icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><polyline points="13 2 13 9 20 9"/></svg>
+          </div>
+          <div>
+            <div class="cred-badge__label">Data Center Certified Associate</div>
+            <div class="cred-badge__sub">Schneider Electric</div>
+          </div>
+        </div>
+
       </div>
-      <div class="role-date">Prior to 2012 · Russia</div>
-    </div>
-    <ul>
-      <li>Performed regulatory and compliance functions related to technical standards governing the import and export of dual-use technologies.</li>
-      <li>Awarded the Insignia FSTEC "For the Strengthening of Export Controls" (Dec 2010).</li>
-    </ul>
-  </div>
 
-  <h2>Education</h2>
+      <!-- Education -->
+      <div class="edu-list">
 
-  <div class="role">
-    <div class="role-header">
-      <div>
-        <div class="role-title">Vocational Diploma, Telecommunications Installation and Repair</div>
-        <div class="role-company">Pearson Electrotechnology Centre</div>
+        <div class="edu-item fade-in">
+          <div class="edu-item__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div>
+            <div class="edu-item__degree">Ph.D., Engineering</div>
+            <div class="edu-item__school">ITMO University</div>
+            <div class="edu-item__meta">Saint-Petersburg, Russia</div>
+          </div>
+        </div>
+
+        <div class="edu-item fade-in">
+          <div class="edu-item__icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div>
+            <div class="edu-item__degree">Vocational Diploma, Telecommunications Installation &amp; Repair</div>
+            <div class="edu-item__school">Pearson Electrotechnology Centre</div>
+            <div class="edu-item__meta">Montreal, QC, Canada</div>
+          </div>
+        </div>
+
       </div>
-      <div class="role-date">2013 – 2014 · Montreal, QC, Canada</div>
-    </div>
-  </div>
 
-  <div class="role">
-    <div class="role-header">
-      <div>
-        <div class="role-title">Ph.D., Engineering</div>
-        <div class="role-company">ITMO University</div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══ FOOTER ══ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer__inner">
+      <div class="footer__left">
+        <p class="footer__name">Evgenii Protcenko, Ph.D., PMP</p>
+        <p class="footer__tagline">Infrastructure TPM · Seattle, WA · 10 years AWS</p>
       </div>
-      <div class="role-date">2004 – 2008 · Saint-Petersburg, Russia</div>
+      <ul class="footer__links" role="list">
+        <li>
+          <a href="https://linkedin.com/in/evgeniip" target="_blank" rel="noopener noreferrer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+        </li>
+        <li>
+          <a href="mailto:evgenii@protcenko.com">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Contact
+          </a>
+        </li>
+      </ul>
     </div>
   </div>
+</footer>
 
-  <div class="role">
-    <div class="role-header">
-      <div>
-        <div class="role-title">Master's Degree in Law</div>
-        <div class="role-company">Saint Petersburg University of Humanities and Social Sciences</div>
-      </div>
-      <div class="role-date">2000 – 2004 · Saint-Petersburg, Russia</div>
-    </div>
-  </div>
-
-  <h2>Certifications</h2>
-    <div class="cert">
-    <span class="cert-name">Project Management Professional (PMP)</span>
-    <span class="cert-issuer">· Project Management Institute · Issued Feb 2023 · Expires Feb 2032</span>
-    <div class="badge-wrap">
-      <div data-iframe-width="150" data-iframe-height="270" data-share-badge-id="86f30df3-a370-425b-831b-dd9a3bae8de9" data-share-badge-host="https://www.credly.com"></div>
-      <script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-    </div>
-  </div>
-  <div class="cert"><span class="cert-name">BICSI ICT Design Fundamentals</span> <span class="cert-issuer">· BICSI · Sep 2018</span></div>
-  <div class="cert"><span class="cert-name">Schneider Electric Data Center Certified Associate</span> <span class="cert-issuer">· Schneider Electric · Aug 2017</span></div>
-  <div class="cert"><span class="cert-name">BELDEN IBDN 747 — Optical Fiber Media</span> <span class="cert-issuer">· Belden Inc. · May 2014</span></div>
-  <div class="cert"><span class="cert-name">BELDEN IBDN 727 — Copper Media</span> <span class="cert-issuer">· Belden Inc. · May 2014</span></div>
-  <div class="cert"><span class="cert-name">Construction Health and Safety (5th edition, including WHMIS)</span> <span class="cert-issuer">· ASP Construction · Feb 2013</span></div>
-
-  <h2>Honors &amp; Awards</h2>
-
-  <div class="role">
-    <div class="role-header">
-      <div>
-        <div class="role-title">Merit Encore</div>
-        <div class="role-company">Équipe Mérite · Bell Technical Solutions</div>
-      </div>
-      <div class="role-date">Nov 2015</div>
-    </div>
-  </div>
-
-  <div class="role">
-    <div class="role-header">
-      <div>
-        <div class="role-title">Service First</div>
-        <div class="role-company">Équipe Service d'Abord · Bell Technical Solutions</div>
-      </div>
-      <div class="role-date">Jul 2015</div>
-    </div>
-  </div>
-
-  <div class="role">
-    <div class="role-header">
-      <div>
-        <div class="role-title">Insignia FSTEC of Russia &ldquo;For the strengthening of export controls&rdquo;</div>
-        <div class="role-company">FSTEC of Russia</div>
-      </div>
-      <div class="role-date">Dec 2010</div>
-    </div>
-  </div>
-
-  <div id="google_translate_element"></div>
-  <script type="text/javascript">
-    function googleTranslateElementInit() {
-      new google.translate.TranslateElement({ pageLanguage: 'en' }, 'google_translate_element');
-    }
-  </script>
-  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
-      <script>
-    const toggle = document.getElementById('aboutToggle');
-    const expanded = document.getElementById('aboutExpanded');
-    const label = document.createElement('span');
-    label.textContent = 'Read full bio';
-    toggle.appendChild(label);
-
-    toggle.addEventListener('click', function () {
-      const isOpen = expanded.classList.toggle('open');
-      toggle.classList.toggle('open', isOpen);
-      toggle.setAttribute('aria-expanded', isOpen);
-      label.textContent = isOpen ? 'Collapse bio' : 'Read full bio';
+<script>
+(function(){
+  const toggle = document.querySelector('[data-theme-toggle]');
+  const html = document.documentElement;
+  let current = 'dark';
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) current = 'light';
+  html.setAttribute('data-theme', current);
+  updateIcon(current);
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      current = current === 'dark' ? 'light' : 'dark';
+      html.setAttribute('data-theme', current);
+      updateIcon(current);
     });
-  </script>
-  <script>
-  (function() {
-    var u = 'cv', d = 'protcenko.com';
-    var el = document.getElementById('email-link');
-    if (el) {
-      el.href = 'mailto:' + u + '@' + d;
-      el.title = 'Email: ' + u + '@' + d;
-    }
-  })();
+  }
+  function updateIcon(t) {
+    if (!toggle) return;
+    toggle.setAttribute('aria-label', 'Switch to ' + (t === 'dark' ? 'light' : 'dark') + ' mode');
+    toggle.innerHTML = t === 'dark'
+      ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+      : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+  }
+})();
 </script>
-
 </body>
 </html>
