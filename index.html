@@ -271,11 +271,10 @@
     <p class="specialties"><strong>Specialties:</strong> Global Infrastructure Program Management · Network Backbone Topology · Risk &amp; Issue Management · Cross-Functional Stakeholder Leadership · Network Troubleshooting · GenAI Tools &amp; Automation · Custom Operational Tooling (Rust · TypeScript · Python) · Data Center Delivery · Mission-Critical Facilities · Vendor &amp; Colocation Management · Capital Project Execution · Structured Cabling · Regulatory Compliance</p>
   </div>
 
-  <button class="about-toggle" id="aboutToggle" aria-expanded="false" aria-controls="aboutExpanded">
+    <button class="about-toggle" id="aboutToggle" aria-expanded="false" aria-controls="aboutExpanded">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
       <path d="M6 9l6 6 6-6"></path>
     </svg>
-    Read full bio
   </button>
 
   <div class="about-expanded" id="aboutExpanded" role="region" aria-labelledby="aboutToggle">
@@ -502,15 +501,18 @@
   </script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-    <script>
+      <script>
     const toggle = document.getElementById('aboutToggle');
     const expanded = document.getElementById('aboutExpanded');
+    const label = document.createElement('span');
+    label.textContent = 'Read full bio';
+    toggle.appendChild(label);
+
     toggle.addEventListener('click', function () {
       const isOpen = expanded.classList.toggle('open');
       toggle.classList.toggle('open', isOpen);
       toggle.setAttribute('aria-expanded', isOpen);
-      const textNode = [...toggle.childNodes].find(n => n.nodeType === 3);
-      if (textNode) textNode.textContent = isOpen ? ' Collapse bio' : ' Read full bio';
+      label.textContent = isOpen ? 'Collapse bio' : 'Read full bio';
     });
   </script>
 
