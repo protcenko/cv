@@ -239,7 +239,7 @@
   <div class="subtitle">Technical Infrastructure Program Manager</div>
 
   <div class="contact">
-    <a href="mailto:cv@protcenko.com" title="Email: cv@protcenko.com" aria-label="Email">
+        <a id="email-link" aria-label="Email" style="cursor:pointer">
       <svg viewBox="0 0 24 24" aria-hidden="true">
         <path d="M4 6h16v12H4z" fill="none" stroke="currentColor" stroke-width="1.8"></path>
         <path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.8"></path>
@@ -515,6 +515,16 @@
       label.textContent = isOpen ? 'Collapse bio' : 'Read full bio';
     });
   </script>
+  <script>
+  (function() {
+    var u = 'cv', d = 'protcenko.com';
+    var el = document.getElementById('email-link');
+    if (el) {
+      el.href = 'mailto:' + u + '@' + d;
+      el.title = 'Email: ' + u + '@' + d;
+    }
+  })();
+</script>
 
 </body>
 </html>
