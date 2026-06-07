@@ -444,7 +444,6 @@
 
   <h2>Certifications</h2>
   <div class="cert"><span class="cert-name">Project Management Professional (PMP)</span> <span class="cert-issuer">· Project Management Institute · Issued Feb 2023 · Expires Feb 2032</span></div>
-  <div class="cert"><span class="cert-name">AWS Certified Cloud Practitioner</span> <span class="cert-issuer">· Amazon Web Services</span></div>
   <div class="cert"><span class="cert-name">BICSI ICT Design Fundamentals</span> <span class="cert-issuer">· BICSI · Sep 2018</span></div>
   <div class="cert"><span class="cert-name">Schneider Electric Data Center Certified Associate</span> <span class="cert-issuer">· Schneider Electric · Aug 2017</span></div>
   <div class="cert"><span class="cert-name">BELDEN IBDN 747 — Optical Fiber Media</span> <span class="cert-issuer">· Belden Inc. · May 2014</span></div>
@@ -491,14 +490,13 @@
   </script>
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
-  <script>
+    <script>
     const toggle = document.getElementById('aboutToggle');
     const expanded = document.getElementById('aboutExpanded');
     toggle.addEventListener('click', function () {
       const isOpen = expanded.classList.toggle('open');
       toggle.classList.toggle('open', isOpen);
       toggle.setAttribute('aria-expanded', isOpen);
-      toggle.querySelector('span') && (toggle.querySelector('span').textContent = isOpen ? 'Collapse bio' : 'Read full bio');
       const textNode = [...toggle.childNodes].find(n => n.nodeType === 3);
       if (textNode) textNode.textContent = isOpen ? ' Collapse bio' : ' Read full bio';
     });
