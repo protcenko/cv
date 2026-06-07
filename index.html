@@ -674,7 +674,7 @@
           </a>
         </li>
         <li>
-          <a href="mailto:evgenii@protcenko.com">
+          <a href="#" id="contact-link" aria-label="Send email">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             Contact
           </a>
@@ -683,6 +683,18 @@
     </div>
   </div>
 </footer>
+
+<script>
+(function(){
+  const u = 'cv';
+  const d = 'protcenko.com';
+  const el = document.getElementById('contact-link');
+  if (el) {
+    el.href = 'mailto:' + u + '@' + d;
+    el.setAttribute('aria-label', 'Send email to ' + u + '@' + d);
+  }
+})();
+</script>
 
 <script>
 (function(){
