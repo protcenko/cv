@@ -121,29 +121,65 @@
   
       /* STRENGTHS */
       .strengths-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(220px,100%),1fr));gap:var(--space-4)}
-      .strength-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-5);position:relative;overflow:hidden}
-      .strength-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--color-primary),transparent);opacity:0;transition:opacity var(--transition-interactive)}
-      .strength-card:hover::after{opacity:1}
-      .strength-card:hover{border-color:color-mix(in oklab,var(--color-primary) 40%,var(--color-border))}
+      
+      .strength-card,
+      .impact-card,
+      .work-card{
+        background:var(--color-surface);
+        border:1px solid var(--color-border);
+        border-radius:var(--radius-lg);
+        position:relative;
+        overflow:hidden;
+        transition:
+          border-color var(--transition-interactive),
+          box-shadow var(--transition-interactive),
+          transform var(--transition-interactive);
+      }
+      
+      .strength-card::after,
+      .impact-card::after,
+      .work-card::after{
+        content:'';
+        position:absolute;
+        top:0;
+        left:0;
+        right:0;
+        height:2px;
+        background:linear-gradient(90deg,var(--color-primary),transparent);
+        opacity:0;
+        transition:opacity var(--transition-interactive);
+      }
+      
+      .strength-card:hover,
+      .impact-card:hover,
+      .work-card:hover{
+        border-color:color-mix(in oklab,var(--color-primary) 40%,var(--color-border));
+        box-shadow:var(--shadow-md);
+        transform:translateY(-2px);
+      }
+      
+      .strength-card:hover::after,
+      .impact-card:hover::after,
+      .work-card:hover::after{
+        opacity:1;
+      }
+      
+      .strength-card{padding:var(--space-5)}
       .strength-card__icon{width:36px;height:36px;border-radius:var(--radius-md);background:var(--color-primary-dim);display:flex;align-items:center;justify-content:center;margin-bottom:var(--space-4);color:var(--color-primary)}
       .strength-card__title{font-family:var(--font-display);font-size:var(--text-base);font-weight:700;color:var(--color-text);margin-bottom:var(--space-2)}
       .strength-card__desc{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.5}
-  
+      
       /* IMPACT */
       .impact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr));gap:var(--space-4)}
-      .impact-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-3);transition:border-color var(--transition-interactive),box-shadow var(--transition-interactive);position:relative;overflow:hidden}
-    .impact-card:hover{border-color:color-mix(in oklab,var(--color-primary) 40%,var(--color-border));box-shadow:var(--shadow-md)}
-    .impact-card::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--color-primary),transparent);opacity:0;transition:opacity var(--transition-interactive)}
-    .impact-card:hover::after{opacity:1}
-      .impact-card__number{font-family:var(--font-display);font-size:var(--text-2xl);font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--color-primary)}
-      .impact-card__label{font-size:var(--text-sm);font-weight:600;color:var(--color-text)}
-      .impact-card__desc{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.5}
-      .impact-card__source{font-family:var(--font-mono);font-size:var(--text-xs);color:var(--color-text-faint);margin-top:auto;padding-top:var(--space-2);border-top:1px solid var(--color-divider)}
-  
+      .impact-card{padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-3)}
+      .impact-card__number{font-family:var(--font-display);font-size:clamp(3rem,6vw,4.75rem);font-weight:800;letter-spacing:-.05em;line-height:.9;color:var(--color-primary);margin-bottom:var(--space-2);}
+      .impact-card__label{font-family:var(--font-display);font-size:var(--text-lg);font-weight:700;line-height:1.2;color:var(--color-text);}
+      .impact-card__desc{font-size:.95rem;color:var(--color-text-muted);line-height:1.65;margin-top:var(--space-2);}
+      .impact-card__source{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--color-text-faint);margin-top:auto;padding-top:var(--space-3);border-top:1px solid var(--color-divider);}
+
       /* WORK */
       .work-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(300px,100%),1fr));gap:var(--space-4)}
-      .work-card{background:var(--color-surface);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-3)}
-      .work-card:hover{border-color:color-mix(in oklab,var(--color-primary) 30%,var(--color-border));box-shadow:var(--shadow-md)}
+      .work-card{padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-3)}
       .work-card__title{font-family:var(--font-display);font-size:var(--text-base);font-weight:700;color:var(--color-text)}
       .work-card__desc{font-size:var(--text-sm);color:var(--color-text-muted);line-height:1.6}
       .work-card__stack{display:flex;flex-wrap:wrap;gap:var(--space-2);margin-top:auto}
@@ -249,10 +285,10 @@
           Open to senior infrastructure TPM roles
         </div>
         <h1 class="hero__name">Evgenii<br>Protcenko</h1>
-        <p class="hero__title">Technical Infrastructure Program Manager<br>for backbone, systems integration, and operational execution</p>
+        <p class="hero__title">Technical Infrastructure Program Manager<br>specializing in backbone capacity, systems integration, and operational tooling.</p>
         <p class="hero__summary">
-          <strong>10 years at AWS</strong> delivering hyperscale backbone capacity programs and building production-grade operational tooling in Rust, TypeScript, and Python.
-          Proven track record driving <strong>$18M+ in lifetime cost savings</strong> and $207K in MRC optimization through fiber migration, network design, and data center delivery across North America, Europe, and Trans-Pacific / Trans-Atlantic subsea routes.
+          <strong>10 years at AWS</strong> delivering hyperscale infrastructure programs.
+          Delivered <strong>$18M+ in documented infrastructure savings</strong>, $207K in MRC optimization, and production software used by a backbone engineering team.
         </p>
         <div class="hero__ctas">
           <a href="https://linkedin.com/in/evgeniip" class="btn btn--primary" target="_blank" rel="noopener noreferrer">
