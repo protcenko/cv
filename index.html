@@ -199,48 +199,6 @@
 <body>
   <a href="#main" class="sr-only">Skip to main content</a>
   
-    /* TOC Sidebar - Desktop Only */
-    .toc {
-      display: none;
-    }
-    @media (min-width: 1024px) {
-      .toc {
-        display: block;
-        position: fixed;
-        left: 0;
-        top: 80px;
-        width: 240px;
-        padding: var(--space-4);
-        height: calc(100vh - 80px);
-        overflow-y: auto;
-        border-right: 1px solid var(--color-divider);
-      }
-      .toc__title {
-        font-size: var(--text-sm);
-        font-weight: 600;
-        color: var(--color-text);
-        margin-bottom: var(--space-2);
-        text-transform: uppercase;
-        letter-spacing: .05em;
-      }
-      .toc__list {
-        display: flex;
-        flex-direction: column;
-        gap: var(--space-2);
-      }
-      .toc__list a {
-        font-size: var(--text-sm);
-        color: var(--color-text-muted);
-        text-decoration: none;
-        transition: color var(--transition-interactive);
-      }
-      .toc__list a:hover {
-        color: var(--color-text);
-      }
-      body {
-        padding-left: 240px;
-      }
-    }
   <nav class="nav">
     <div class="container nav__inner">
       <a href="#" class="nav__logo">
@@ -255,18 +213,6 @@
       </div>
     </div>
   </nav>
-    <aside class="toc" aria-label="Table of Contents">
-    <nav class="toc__nav">
-      <h2 class="toc__title">Contents</h2>
-      <ul class="toc__list" role="list">
-        <li><a href="#about">About</a></li>
-        <li><a href="#strengths">Strengths</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#work">Software</a></li>
-        <li><a href="#credentials">Credentials</a></li>
-      </ul>
-    </nav>
-  </aside>
   <main id="main">
     <section class="hero">
       <div class="container">
