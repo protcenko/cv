@@ -39,23 +39,29 @@
   }
   </script>
   <style>
-  [data-theme="dark"] {      --color-bg: #0d0f11;      --color-surface: #131518;      --color-surface-2: #191c20;
-      --color-surface-offset: #1e2226;
-      --color-surface-dynamic: #252a30;
-      --color-divider: #252a30;
-      --color-border: #2d3238;
-      --color-text: #e4e8ec;
-      --color-text-muted: #7e8b97;
-      --color-text-faint: #4a5560;
-      --color-text-inverse: #0d0f11;
-      --color-primary: #2dd4bf;
-      --color-primary-hover: #14b8a6;
-      --color-primary-active: #0d9488;
-      --color-primary-dim: rgba(45,212,191,0.12);
-      --color-primary-glow: rgba(45,212,191,0.06);
-      --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
-      --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
-      --shadow-lg: 0 12px 40px rgba(0,0,0,0.5);
+    /* ============================================================
+       THEME-INDEPENDENT TOKENS
+       These never change between dark/light, so they live on :root
+       and are always defined, regardless of which data-theme value
+       is active on <html>.
+
+       BUG THIS FIXES: these tokens used to be declared only inside
+       [data-theme="dark"]. Since [data-theme="light"] never repeated
+       them, switching to light left --font-body, --space-*, --radius-*,
+       --text-*, --content-*, and --transition-interactive undefined
+       on <html>. Custom properties don't fall back to a different,
+       non-matching selector's value — an unmatched rule simply
+       doesn't apply. With no :root definition either, every element
+       using those tokens fell back to CSS initial/inherited values:
+       fonts reverted to the browser's default serif, all padding/
+       margin collapsed to 0, border-radius reset to 0 (square
+       corners), and .container lost its max-width entirely. Colors
+       (which *were* redeclared in both blocks) switched correctly,
+       which is why it could look like "the attribute updates but
+       styles don't reflect" — some styles genuinely didn't. Verified
+       with real Chrome via computed styles before/after this fix.
+       ============================================================ */
+    :root {
       --radius-sm: 0.375rem; --radius-md: 0.5rem; --radius-lg: 0.75rem;
       --radius-xl: 1rem; --radius-full: 9999px;
       --transition-interactive: 180ms cubic-bezier(0.16,1,0.3,1);
@@ -73,6 +79,31 @@
       --space-5:1.25rem;--space-6:1.5rem;--space-8:2rem;--space-10:2.5rem;
       --space-12:3rem;--space-16:4rem;--space-20:5rem;--space-24:6rem;
       --content-narrow:640px;--content-default:960px;--content-wide:1200px;
+    }
+
+    /* ============================================================
+       THEME-DEPENDENT TOKENS
+       Only colors and shadows actually differ between themes, so
+       only colors and shadows live here now.
+       ============================================================ */
+    [data-theme="dark"] {
+      --color-bg: #0d0f11;      --color-surface: #131518;      --color-surface-2: #191c20;
+      --color-surface-offset: #1e2226;
+      --color-surface-dynamic: #252a30;
+      --color-divider: #252a30;
+      --color-border: #2d3238;
+      --color-text: #e4e8ec;
+      --color-text-muted: #7e8b97;
+      --color-text-faint: #4a5560;
+      --color-text-inverse: #0d0f11;
+      --color-primary: #2dd4bf;
+      --color-primary-hover: #14b8a6;
+      --color-primary-active: #0d9488;
+      --color-primary-dim: rgba(45,212,191,0.12);
+      --color-primary-glow: rgba(45,212,191,0.06);
+      --shadow-sm: 0 1px 2px rgba(0,0,0,0.3);
+      --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.5);
     }
     [data-theme="light"] {
       --color-bg:#f5f6f7;--color-surface:#ffffff;--color-surface-2:#f0f2f4;
@@ -680,7 +711,7 @@
       }
       
       const el=document.getElementById('contact-link');
-      if(el){const u='cv',dm='protcenko.com';el.href='mailto:'+u+'@'+dm;el.setAttribute('aria-label','Send email to '+u+'@'+dm')}
+      if(el){const u='cv',dm='protcenko.com';el.href='mailto:'+u+'@'+dm;el.setAttribute('aria-label','Send email to '+u+'@'+dm)}
     })();
   </script>
 </body>
