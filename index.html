@@ -103,7 +103,7 @@
       --neutral-250:  #cdd2d7;
       --neutral-400:  #9aa5b1;
       --neutral-500:  #7e8b97;
-      --neutral-550:  #77828f;   /* faint text (dark) — AA >=4.5:1 on bg/surfaces, still below --neutral-500 */
+      --neutral-550:  #77828f;   /* faint text (dark) — AA >=4.5:1 on --color-bg/--color-surface only (fails on surface-2/offset); still below --neutral-500 */
       --neutral-640:  #4a5568;
       --neutral-750:  #2d3238;
       --neutral-800:  #252a30;
@@ -468,7 +468,7 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
             <h3 class="strength-card__title">Cross-functional execution</h3>
-            <p class="strength-card__desc">Managed 200+ coordination channels, a 6,600+ ticket footprint, and 15+ resolver groups alongside external carriers — operational throughput at org scale.</p>
+            <p class="strength-card__desc">Managed 200+ coordination channels, a 6,600+ ticket footprint, and 15+ engineering and operations teams alongside external carriers — operational throughput at org scale.</p>
           </article>
 
           <article class="strength-card">
@@ -555,7 +555,7 @@
 
           <article class="work-card">
             <h3 class="work-card__title">Migration process hardening</h3>
-            <p class="work-card__desc">Turned a one-off circuit migration into a repeatable, safer program: ran the lessons-learned to closure, authored an approved change-management template with pre-flight safety checks and TIPM sign-off, and aligned adjacent deployment teams on standardized regional intake. Closed a decommissioning gap that left carrier cross-connects physically connected after cutover — reclaiming scarce ports and optics for reuse.</p>
+            <p class="work-card__desc">Turned a one-off circuit migration into a repeatable, safer program: ran the lessons-learned to closure, authored an approved change-management template with pre-flight safety checks and program-manager sign-off, and aligned adjacent deployment teams on standardized regional intake. Closed a decommissioning gap that left carrier cross-connects physically connected after cutover — reclaiming scarce ports and optics for reuse.</p>
             <p class="work-card__metric">Repeatable CM template shipped · post-cutover asset recovery</p>
           </article>
         </div>
@@ -604,7 +604,7 @@
 
           <article class="work-card">
             <h3 class="work-card__title">Global Device Status Monitor</h3>
-            <p class="work-card__desc">Flags devices that aren't yet operational at order intake — before they become turn-up timeline blockers — by checking readiness across the global network-state system in one pass instead of manual per-device lookups. Lets a TIPM prep cabling validation proactively rather than discovering blockers at go-live. Adopted organically team-wide.</p>
+            <p class="work-card__desc">Flags devices that aren't yet operational at order intake — before they become turn-up timeline blockers — by checking readiness across the global network-state system in one pass instead of manual per-device lookups. Lets a program manager prep cabling validation proactively rather than discovering blockers at go-live. Adopted organically team-wide.</p>
             <p class="work-card__metric">Per-cutsheet readiness check: 15–30 min → 30 sec</p>
             <div class="work-card__stack">
               <span class="tag">JavaScript</span>
@@ -615,7 +615,7 @@
 
           <article class="work-card">
             <h3 class="work-card__title">Backbone Operations Slack Application and Workflows</h3>
-            <p class="work-card__desc">Standardizes how every backbone order is coordinated — auto-creating and archiving each order's Slack channel with consistent naming, order details, and the right members. Paired with event-driven workflows that fire at each lifecycle transition (cabling, pending-turn-up, normalization) to notify the right resolver group and auto-assign the owning program manager or network deployment engineer — so ownership is never ambiguous and no order slips through untracked.</p>
+            <p class="work-card__desc">Standardizes how every backbone order is coordinated — auto-creating and archiving each order's Slack channel with consistent naming, order details, and the right members. Paired with event-driven workflows that fire at each lifecycle transition (cabling, pending-turn-up, normalization) to notify the right operations team and auto-assign the owning program manager or network deployment engineer — so ownership is never ambiguous and no order slips through untracked.</p>
             <p class="work-card__metric">Per-order channel setup: 5 min manual → automated (32 channels to date) · 4 lifecycle workflows</p>
             <div class="work-card__stack">
               <span class="tag">Slack API and Workflows</span>
