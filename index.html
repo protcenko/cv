@@ -408,7 +408,16 @@
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             Get in touch
           </a>
+          <!-- Politely-announced status for the client-side CV generation, so screen
+               reader users hear generation progress/completion (button text alone isn't announced). -->
+          <span id="cv-status" class="sr-only" role="status" aria-live="polite"></span>
         </div>
+        <!-- No-JS fallback: the mailto: is assembled in JS to deter scrapers, so the
+             "Get in touch" / "Contact" links do nothing without JavaScript. Surface a
+             human-readable address (obfuscated with [at]) for visitors without JS. -->
+        <noscript>
+          <p class="hero__summary" style="margin-top:var(--space-4)">Prefer email? Reach me at <strong>cv [at] protcenko.com</strong>.</p>
+        </noscript>
       </div>
     </section>
 
@@ -519,7 +528,7 @@
 
           <article class="impact-card">
             <div class="impact-card__number">80–90%</div>
-            <h3 class="impact-card__label">Faster physical-layer analysis (pilot)</h3>
+            <h3 class="impact-card__label">Faster physical-layer analysis (pilot, in development)</h3>
             <p class="impact-card__desc">A custom fiber-path diagnostic application cut 3.5–6 hour manual investigations to under 30 minutes per circuit validation cycle in production pilots. In active development.</p>
             <p class="impact-card__source">Current role · applications</p>
           </article>
@@ -679,7 +688,7 @@
                 <span class="highlight-pill">$2.7M total documented savings</span>
                 <span class="highlight-pill">$1.4M RMA recovery</span>
                 <span class="highlight-pill">130+ sites</span>
-                <span class="highlight-pill">L5 promoted Jul 2021</span>
+                <span class="highlight-pill">Promoted to Lead, 2021</span>
               </div>
             </div>
           </article>
@@ -1140,17 +1149,22 @@
         return loading;
       }
 
+      var status = document.getElementById('cv-status');
+      function announce(msg) { if (status) status.textContent = msg; }
+
       btn.addEventListener('click', function (e) {
         e.preventDefault();
         if (btn.getAttribute('aria-busy') === 'true') return;
         var original = btn.innerHTML;
         btn.setAttribute('aria-busy', 'true');
         btn.textContent = 'Generating…';
+        announce('Generating your CV…');
         loadLib()
-          .then(function () { build(collect()); })
+          .then(function () { build(collect()); announce('CV downloaded.'); })
           .catch(function () {
             var m = document.getElementById('contact-link');
             var addr = m && m.href.indexOf('mailto:') === 0 ? m.href.slice(7) : 'the contact link';
+            announce('CV generation failed. Please email ' + addr + ' instead.');
             alert('Sorry — the CV could not be generated in this browser. Please email ' + addr + ' and I will send it directly.');
           })
           .then(function () {
