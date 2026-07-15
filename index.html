@@ -48,7 +48,7 @@
   <meta property="og:image:alt" content="Evgenii Protcenko — Infrastructure TPM, Hyperscale Backbone Capacity, at AWS since 2016">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Evgenii Protcenko — Infrastructure TPM, Hyperscale Backbone Capacity">
-  <meta name="twitter:description" content="Delivered 207T+ of hyperscale backbone capacity and $18M+ in documented infrastructure savings. At AWS since 2016.">
+  <meta name="twitter:description" content="Delivering hyperscale backbone capacity at scale and eight-figure documented infrastructure savings. At AWS since 2016.">
   <meta name="twitter:image" content="https://cv.protcenko.com/og-image.png">
   <meta name="twitter:image:alt" content="Evgenii Protcenko — Infrastructure TPM, Hyperscale Backbone Capacity, at AWS since 2016">
   <link rel="canonical" href="https://cv.protcenko.com">
@@ -297,6 +297,9 @@
     .impact-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(280px,100%),1fr));gap:var(--space-4)}
     .impact-card{padding:var(--space-5);display:flex;flex-direction:column;gap:var(--space-3)}
     .impact-card__number{font-family:var(--font-display);font-size:clamp(3rem,6vw,4.75rem);font-weight:800;letter-spacing:-.05em;line-height:.9;color:var(--color-primary);margin-bottom:var(--space-2);}
+    /* Word-based stat values ("Hundreds of Tbps") need a smaller size than short
+       numerics ("80–90%") or they clip against the card's overflow:hidden. */
+    .impact-card__number--text{font-size:clamp(2rem,4.5vw,2.875rem);letter-spacing:-.03em;line-height:1.05;text-wrap:balance;}
     .impact-card__label{font-family:var(--font-display);font-size:var(--text-lg);font-weight:700;line-height:1.2;color:var(--color-text);}
     .impact-card__desc{font-size:.95rem;color:var(--color-text-muted);line-height:1.65;margin-top:var(--space-2);}
     .impact-card__source{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.05em;text-transform:uppercase;color:var(--color-text-faint);margin-top:auto;padding-top:var(--space-3);border-top:1px solid var(--color-divider);}
@@ -387,11 +390,11 @@
         </h1>
         
         <p class="hero__title">
-          Technical Infrastructure Program Manager delivering hyperscale backbone capacity — including Day-1 backbone capacity for AI/ML datacenter builds — and building the tooling that speeds its delivery.
+          Technical Infrastructure Program Manager delivering hyperscale backbone capacity — including for AI and large-scale compute infrastructure — and building the tooling that speeds its delivery.
         </p>
 
         <p class="hero__summary">
-          Delivered <strong>207T+</strong> of hyperscale backbone capacity and <strong>$18M+</strong> in documented infrastructure savings, leading programs end-to-end from intake through cross-functional execution to operational handoff.
+          Delivered <strong>hundreds of Tbps</strong> of hyperscale backbone capacity and <strong>eight figures</strong> in documented infrastructure savings, leading programs end-to-end from intake through cross-functional execution to operational handoff.
         </p>
         
         <div class="hero__chips">
@@ -493,7 +496,7 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
             </div>
             <h3 class="strength-card__title">Cross-functional execution</h3>
-            <p class="strength-card__desc">Managed 200+ coordination channels, a 6,600+ ticket footprint, and 15+ engineering and operations teams alongside external carriers — operational throughput at org scale.</p>
+            <p class="strength-card__desc">Managed hundreds of coordination channels, a footprint of thousands of tickets, and many engineering and operations teams alongside external carriers — operational throughput at org scale.</p>
           </article>
 
           <article class="strength-card">
@@ -515,37 +518,37 @@
         
         <div class="impact-grid">
           <article class="impact-card">
-            <div class="impact-card__number">207T+</div>
+            <div class="impact-card__number impact-card__number--text">Hundreds of Tbps</div>
             <h3 class="impact-card__label">Backbone capacity delivered — cumulative</h3>
-            <p class="impact-card__desc">174.6T delivered in 2025 across 30+ global backbone sites, plus 32.4T released in H1 2026 — with a substantial multi-stage delivery pipeline in flight.</p>
+            <p class="impact-card__desc">Multi-terabit backbone deliveries across dozens of global sites over the past two years, with a substantial multi-stage delivery pipeline in flight.</p>
             <p class="impact-card__source">Current role</p>
           </article>
 
           <article class="impact-card">
-            <div class="impact-card__number">$207K+</div>
-            <h3 class="impact-card__label">Documented MRC savings + $553K+ active pipeline</h3>
-            <p class="impact-card__desc">From leased-to-owned optical circuit migrations eliminating recurring carrier costs. Total program value: $760K+.</p>
+            <div class="impact-card__number impact-card__number--text">Six figures</div>
+            <h3 class="impact-card__label">Recurring cost eliminated + active pipeline</h3>
+            <p class="impact-card__desc">Recurring monthly carrier charges retired through leased-to-owned optical circuit migrations, with further migrations in the pipeline.</p>
             <p class="impact-card__source">Current role</p>
           </article>
 
           <article class="impact-card">
-            <div class="impact-card__number">$2.5M+</div>
+            <div class="impact-card__number impact-card__number--text">Multi-million</div>
             <h3 class="impact-card__label">Total documented savings</h3>
-            <p class="impact-card__desc">Principal components: $1.4M in RMA equipment recovery, facility and cabling optimization, $522–580K annually through fiber innovation, and $117K through network design influence.</p>
+            <p class="impact-card__desc">Principal components: equipment RMA recovery, facility and cabling optimization, recurring savings through fiber innovation, and network design influence.</p>
             <p class="impact-card__source">Edge Data Center Operations · 2020–2024</p>
           </article>
 
           <article class="impact-card">
-            <div class="impact-card__number">$16.5M</div>
+            <div class="impact-card__number impact-card__number--text">Eight figures</div>
             <h3 class="impact-card__label">Rack-density redesign savings</h3>
-            <p class="impact-card__desc">Co-created a rack-density program that unlocked stranded capacity at space-constrained sites — adding server hardware into existing racks where no standard positions remained. 446 racks deployed globally without new construction, plus $700K from cabling optimization across global locations.</p>
+            <p class="impact-card__desc">Co-created a rack-density program that unlocked stranded capacity at space-constrained sites — adding server hardware into existing racks where no standard positions remained. Hundreds of racks deployed across multiple countries without new construction, plus further savings from cabling optimization across global locations.</p>
             <p class="impact-card__source">Data Center Infrastructure Delivery · 2016–2020</p>
           </article>
 
           <article class="impact-card">
             <div class="impact-card__number">80–90%</div>
             <h3 class="impact-card__label">Faster physical-layer analysis (pilot)</h3>
-            <p class="impact-card__desc">A custom fiber-path diagnostic application cut 3.5–6 hour manual investigations to under 30 minutes per circuit validation cycle in production pilots. In active development.</p>
+            <p class="impact-card__desc">A custom fiber-path diagnostic application cut multi-hour manual investigations to a fraction of the time per circuit validation cycle in pilot use. In active development.</p>
             <p class="impact-card__source">Current role · applications</p>
           </article>
 
@@ -568,8 +571,8 @@
         <div class="work-grid">
           <article class="work-card">
             <h3 class="work-card__title">Carrier-fault recovery & vendor escalation</h3>
-            <p class="work-card__desc">Isolated a multi-week carrier-side fault blocking a backbone turn-up, built a detailed chronology proving the impairment was not ours, then identified the right internal escalation path and drove vendor-performance accountability across three teams — resulting in a formal vendor engagement that recovered the circuit and unblocked stalled capacity.</p>
-            <p class="work-card__metric">~0.5T unblocked · ~7-week fault driven to resolution · cross-team escalation</p>
+            <p class="work-card__desc">Isolated a multi-week carrier-side fault blocking a backbone turn-up, built a detailed chronology proving the impairment was not ours, then identified the right internal escalation path and drove vendor-performance accountability across multiple teams — resulting in a formal vendor engagement that recovered the circuit and unblocked stalled capacity.</p>
+            <p class="work-card__metric">High-capacity path recovered · multi-week fault driven to resolution · cross-team escalation</p>
           </article>
 
           <article class="work-card">
@@ -597,7 +600,7 @@
           <article class="work-card">
             <h3 class="work-card__title">Backbone Order Tracker</h3>
             <p class="work-card__desc">Gives the team and leadership one authoritative view of the delivery pipeline — capacity released, in-flight by stage and quarter, and slipping dependencies — pulled live from the systems of record instead of a drift-prone spreadsheet, so schedule slips surface early enough to escalate and weekly reporting is a one-click publish. Adopted across the team as its everyday order-tracking application.</p>
-            <p class="work-card__metric">Weekly leadership report: 30+ min → 1 click</p>
+            <p class="work-card__metric">Weekly leadership reporting reduced from a manual compile to one click</p>
             <div class="work-card__stack">
               <span class="tag">Rust</span>
               <span class="tag">Tauri v2</span>
@@ -608,8 +611,8 @@
 
           <article class="work-card">
             <h3 class="work-card__title">L1 Fiber-Path Diagnostic Application</h3>
-            <p class="work-card__desc">Removes the biggest turn-up bottleneck in backbone delivery — L1 fault isolation. Circuits stalled for weeks now clear in days: it pinpoints the exact cabling fault and the fix, and catches one bad cable's cascade across multiple circuits in a single pass — encoding optical expertise the standard tooling lacks. Validated on production circuits during live delivery.</p>
-            <p class="work-card__metric">Stalled circuits: weeks → days (per-cycle analysis 3.5–6 hrs → 30 min)</p>
+            <p class="work-card__desc">Removes a major turn-up bottleneck in backbone delivery — L1 fault isolation. Stalled circuits clear substantially faster: it pinpoints the exact cabling fault and the fix, and catches one bad cable's cascade across multiple circuits in a single pass — encoding optical expertise the standard tooling lacks. Validated on live circuits during delivery.</p>
+            <p class="work-card__metric">Per-cycle analysis cut from hours to minutes</p>
             <div class="work-card__stack">
               <span class="tag">Python</span>
               <span class="tag">Bash/expect</span>
@@ -620,7 +623,7 @@
           <article class="work-card">
             <h3 class="work-card__title">Circuit Lifecycle Browser Application</h3>
             <p class="work-card__desc">Keeps backbone order execution moving by surfacing circuit lifecycle, capacity, cabling, and sync status inline on the order page — answering "where does this order stand?" without hopping across systems. Adopted organically team-wide; its checks now ship inside the order tracker.</p>
-            <p class="work-card__metric">Per-order status check: 5–10 min → 10 sec</p>
+            <p class="work-card__metric">Per-order status check reduced from minutes to seconds</p>
             <div class="work-card__stack">
               <span class="tag">JavaScript</span>
               <span class="tag">Browser automation</span>
@@ -630,7 +633,7 @@
           <article class="work-card">
             <h3 class="work-card__title">Global Device Status Monitor</h3>
             <p class="work-card__desc">Flags devices that aren't yet operational at order intake — before they become turn-up timeline blockers — by checking readiness across the global network-state system in one pass instead of manual per-device lookups. Lets a program manager prep cabling validation proactively rather than discovering blockers at go-live. Adopted organically team-wide; its checks now ship inside the order tracker.</p>
-            <p class="work-card__metric">Per-cutsheet readiness check: 15–30 min → 30 sec</p>
+            <p class="work-card__metric">Per-cutsheet readiness check reduced from many minutes to seconds</p>
             <div class="work-card__stack">
               <span class="tag">JavaScript</span>
               <span class="tag">Browser automation</span>
@@ -641,7 +644,7 @@
           <article class="work-card">
             <h3 class="work-card__title">Backbone Operations Slack Application and Workflows</h3>
             <p class="work-card__desc">Standardizes how every backbone order is coordinated — auto-creating and archiving each order's Slack channel with consistent naming, order details, and the right members. Paired with event-driven workflows that fire at each lifecycle transition (cabling, pending-turn-up, normalization) to notify the right operations team and auto-assign the owning program manager or network deployment engineer — so ownership is never ambiguous and no order slips through untracked.</p>
-            <p class="work-card__metric">Per-order channel setup: 5 min manual → automated (32 channels to date) · 4 lifecycle workflows</p>
+            <p class="work-card__metric">Per-order channel setup fully automated · lifecycle workflows for each transition</p>
             <div class="work-card__stack">
               <span class="tag">Slack API and Workflows</span>
               <span class="tag">Node.js</span>
@@ -649,7 +652,7 @@
           </article>
         </div>
         
-        <p style="font-size:var(--text-xs);color:var(--color-text-faint);margin-top:var(--space-4);text-align:center">All applications are proprietary internal production systems presented as operational case studies.</p>
+        <p style="font-size:var(--text-xs);color:var(--color-text-faint);margin-top:var(--space-4);text-align:center">All applications are proprietary internal systems presented as operational case studies.</p>
       </div>
     </section>
 
@@ -672,15 +675,15 @@
               <p class="exp-item__period"><time datetime="2024-12">Dec 2024</time> — Present</p>
               <p class="exp-item__desc">End-to-end ownership of hyperscale backbone capacity programs:</p>
               <ul class="exp-item__desc exp-item__bullets">
-                <li>Delivered 207T+ backbone capacity cumulative across 30+ global backbone sites (174.6T in 2025, 32.4T in H1 2026)</li>
-                <li>Closed $143K+/mo in Billing-Not-In-Service by driving four idle leased inter-metro paths into operational service</li>
-                <li>Drove 15 platform improvements across provisioning, validation, and operations systems — including two upstream workflow fixes landed in partner teams' platforms</li>
-                <li>Owned Day-1 critical-path backbone capacity for machine-learning infrastructure builds — the capacity that unblocks network-core turn-up and general availability — driving cross-team cabling and turn-up dependencies from months out</li>
+                <li>Delivered hundreds of Tbps of backbone capacity across dozens of global backbone sites</li>
+                <li>Eliminated recurring monthly leased-capacity charges by driving idle inter-metro paths into operational service</li>
+                <li>Drove platform improvements across provisioning, validation, and operations systems — including upstream workflow fixes landed in partner teams' platforms</li>
+                <li>Owned Day-1 backbone capacity for AI and large-scale compute infrastructure programs, sequencing cross-team cabling and turn-up dependencies from months out</li>
                 <li>Shipped five force-multiplier applications alongside full-time delivery, cutting recurring execution friction across the order lifecycle</li>
               </ul>
               <div class="exp-item__highlights">
-                <span class="highlight-pill">$207K+ MRC savings</span>
-                <span class="highlight-pill">$553K+ active pipeline</span>
+                <span class="highlight-pill">Recurring cost eliminated</span>
+                <span class="highlight-pill">Migration pipeline in progress</span>
               </div>
             </div>
           </article>
@@ -694,16 +697,16 @@
               <h3 class="exp-item__role">Edge Data Center Projects & Operations Lead Engineer</h3>
               <p class="exp-item__org">Montreal, QC</p>
               <p class="exp-item__period"><time datetime="2020-07">Jul 2020</time> — <time datetime="2024-12">Dec 2024</time></p>
-              <p class="exp-item__desc">Scaled and operated network infrastructure across 130+ concurrent mission-critical data center locations in Canada and the U.S.:</p>
+              <p class="exp-item__desc">Scaled and operated network infrastructure across a large fleet of concurrent mission-critical data center locations in Canada and the U.S.:</p>
               <ul class="exp-item__desc exp-item__bullets">
                 <li>Maintained zero unplanned downtime across all sites</li>
                 <li>Led emergency international deployments to Frankfurt, Mumbai, and Bahrain</li>
                 <li>Coordinated COVID-19 capacity scaling response</li>
               </ul>
               <div class="exp-item__highlights">
-                <span class="highlight-pill">$2.5M+ total documented savings</span>
-                <span class="highlight-pill">$1.4M RMA recovery</span>
-                <span class="highlight-pill">130+ sites</span>
+                <span class="highlight-pill">Multi-million-dollar documented savings</span>
+                <span class="highlight-pill">Equipment RMA recovery</span>
+                <span class="highlight-pill">Global site footprint</span>
                 <span class="highlight-pill">Promoted to Lead, 2021</span>
               </div>
             </div>
@@ -724,10 +727,10 @@
                 <li>Executed international deployments to USA, Germany, India, and Bahrain</li>
               </ul>
               <div class="exp-item__highlights">
-                <span class="highlight-pill">$16.5M rack-density savings</span>
-                <span class="highlight-pill">$700K cabling optimization</span>
-                <span class="highlight-pill">$1M scaling projects</span>
-                <span class="highlight-pill">446 racks · 5 countries</span>
+                <span class="highlight-pill">Eight-figure rack-density savings</span>
+                <span class="highlight-pill">Cabling optimization</span>
+                <span class="highlight-pill">Multi-project scaling portfolio</span>
+                <span class="highlight-pill">Hundreds of racks · multiple countries</span>
               </div>
             </div>
           </article>
@@ -868,10 +871,14 @@
           :'<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
       }
 
-      const u='cv',dm='protcenko.com',mailto='mailto:'+u+'@'+dm,mailLabel='Send email to '+u+'@'+dm;
+      const u='cv',dm='protcenko.com',mailto='mailto:'+u+'@'+dm,addr=u+'@'+dm;
       ['contact-link','contact-cta'].forEach(function(id){
         const el=document.getElementById(id);
-        if(el){el.href=mailto;el.setAttribute('aria-label',mailLabel)}
+        // Accessible name must CONTAIN the visible label (WCAG 2.5.3 label-in-name),
+        // so build it from the link's own visible text + the address rather than a
+        // generic shared label. The icon <svg> is aria-hidden, so textContent is
+        // just the visible words ("Get in touch" / "Contact").
+        if(el){el.href=mailto;el.setAttribute('aria-label',el.textContent.replace(/\s+/g,' ').trim()+' — email '+addr)}
       });
 
       // Lift the initial-load transition-suppression flag after the first
