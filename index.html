@@ -1031,6 +1031,38 @@
           font(9, 'bold', TEAL); doc.text(title.toUpperCase(), M, y); y += 4;
           doc.setDrawColor.apply(doc, RULE); doc.setLineWidth(0.5); doc.line(M, y, PW - M, y); y += 10;
         }
+        function paraHeight(text, size, indent, style, c) {
+          if (!text) return 0;
+          indent = indent || 0;
+          font(size, style || 'normal', c || INK);
+          return doc.splitTextToSize(text, maxW - indent).length * size * LH.body;
+        }
+        function titleMetricHeight(title, metric) {
+          font(9.5, 'bold', INK);
+          var titleW = doc.getTextWidth(title);
+          var extraLines = 0;
+          if (metric) {
+            font(8.4, 'bold', TEAL);
+            var right = M + maxW, indent = M + 13;
+            var curX = M + titleW + doc.getTextWidth('  '), line = '';
+            ('(' + metric + ')').split(/(\s+)/).filter(function (t) { return t.length; }).forEach(function (w) {
+              if (/^\s+$/.test(w)) { if (line) line += w; return; }
+              if (line ? curX + doc.getTextWidth(line + w) > right
+                       : curX > indent && curX + doc.getTextWidth(w) > right) {
+                extraLines++;
+                curX = indent;
+                line = '';
+              }
+              line += w;
+            });
+          }
+          return 9.5 * LH.tight + extraLines * 8.4 * LH.tight;
+        }
+        function ensureBlock(space) {
+          // Leave a small baseline/rounding allowance so a block that is
+          // technically within the margin does not split on its last line.
+          if (y + space + 16 > PH - M) { doc.addPage(); y = M; }
+        }
         // Bold title with an optional teal "(metric)" run continuing inline after
         // the title and wrapping onto full-width lines — the metric must never run
         // off the right margin (M + maxW). Word-level wrap: emit the current line and
@@ -1131,7 +1163,7 @@
         if (d.leadership && d.leadership.length) {
           section('Program Leadership & Recovery');
           d.leadership.forEach(function (a) {
-            ensure(28);
+            ensureBlock(titleMetricHeight(a.title, a.metric) + paraHeight(a.desc, 8.6, 0, 'normal', MUTE) + 4 + 2);
             titleMetric(a.title, a.metric);
             para(a.desc, 8.6, 'normal', MUTE);
             y += 4;
@@ -1142,7 +1174,7 @@
         if (d.apps.length) {
           section('Force-Multiplier Tooling');
           d.apps.forEach(function (a) {
-            ensure(28);
+            ensureBlock(titleMetricHeight(a.title, a.metric) + paraHeight(a.desc + (a.stack ? '  —  ' + a.stack : ''), 8.6, 0, 'normal', MUTE) + 4 + 2);
             titleMetric(a.title, a.metric);
             para(a.desc + (a.stack ? '  —  ' + a.stack : ''), 8.6, 'normal', MUTE);
             y += 4;
