@@ -229,6 +229,7 @@
     /* JS-only controls: hidden until the head bootstrap adds .js to <html>. Keeps
        the CV button and obfuscated mailto links from appearing dead without JS. */
     html:not(.js) [data-js-only]{display:none!important}
+    html.js [data-no-js-only]{display:none!important}
     /* Skip link: visually hidden until keyboard-focused, then revealed on-screen. */
     .skip-link{position:absolute;top:var(--space-2);left:var(--space-2);z-index:200;padding:.5rem .875rem;background:var(--color-primary);color:var(--color-text-inverse);font-size:var(--text-sm);font-weight:600;border-radius:var(--radius-md);text-decoration:none;transform:translateY(-150%);transition:transform var(--transition-interactive)}
     .skip-link:focus{transform:translateY(0)}
@@ -369,7 +370,7 @@
         <span class="nav__name">Evgenii Protcenko</span>
       </a>
       <div class="nav__actions">
-        <button class="theme-toggle" data-theme-toggle aria-label="Toggle theme" data-js-only>
+        <button type="button" class="theme-toggle" data-theme-toggle aria-label="Toggle theme" data-js-only>
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
       </div>
@@ -412,7 +413,7 @@
           </span>
           <span class="hero__chip">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            Terrestrial & subsea backbone
+            Terrestrial &amp; subsea backbone
           </span>
         </div>
 
@@ -434,9 +435,7 @@
         <!-- No-JS fallback: the mailto: is assembled in JS to deter scrapers, so the
              "Get in touch" / "Contact" links do nothing without JavaScript. Surface a
              human-readable address (obfuscated with [at]) for visitors without JS. -->
-        <noscript>
-          <p class="hero__summary" style="margin-top:var(--space-4)">Prefer email? Reach me at <strong>cv [at] protcenko.com</strong>.</p>
-        </noscript>
+        <p class="hero__summary" style="margin-top:var(--space-4)" data-no-js-only>Prefer email? Reach me at <strong>cv [at] protcenko.com</strong>.</p>
       </div>
     </section>
 
@@ -570,7 +569,7 @@
 
         <div class="work-grid">
           <article class="work-card">
-            <h3 class="work-card__title">Carrier-fault recovery & vendor escalation</h3>
+            <h3 class="work-card__title">Carrier-fault recovery &amp; vendor escalation</h3>
             <p class="work-card__desc">Isolated a multi-week carrier-side fault blocking a backbone turn-up, built a detailed chronology proving the impairment was not ours, then identified the right internal escalation path and drove vendor-performance accountability across multiple teams — resulting in a formal vendor engagement that recovered the circuit and unblocked stalled capacity.</p>
             <p class="work-card__metric">High-capacity path recovered · multi-week fault driven to resolution · cross-team escalation</p>
           </article>
@@ -694,7 +693,7 @@
               <div class="exp-item__line"></div>
             </div>
             <div>
-              <h3 class="exp-item__role">Edge Data Center Projects & Operations Lead Engineer</h3>
+              <h3 class="exp-item__role">Edge Data Center Projects &amp; Operations Lead Engineer</h3>
               <p class="exp-item__org">Montreal, QC</p>
               <p class="exp-item__period"><time datetime="2020-07">Jul 2020</time> — <time datetime="2024-12">Dec 2024</time></p>
               <p class="exp-item__desc">Scaled and operated network infrastructure across a large fleet of concurrent mission-critical data center locations in Canada and the U.S.:</p>
@@ -744,7 +743,7 @@
       <div class="container">
         <header class="section__header">
           <p class="section__label">Credentials</p>
-          <h2 class="section__title">Certifications & education</h2>
+          <h2 class="section__title">Certifications &amp; education</h2>
         </header>
         
         <div class="creds-row">
@@ -807,7 +806,7 @@
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
             </div>
             <div>
-              <div class="edu-item__degree">Vocational Diploma, Telecommunications Installation & Repair</div>
+              <div class="edu-item__degree">Vocational Diploma, Telecommunications Installation &amp; Repair</div>
               <div class="edu-item__school">Pearson Electrotechnology Centre</div>
               <div class="edu-item__meta">Montreal, QC, Canada</div>
             </div>
