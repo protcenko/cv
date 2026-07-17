@@ -63,10 +63,10 @@
   <link rel="preload" href="https://api.fontshare.com/v2/css?f%5B%5D=cabinet-grotesk@400,500,700,800&amp;display=swap" as="style">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300..700&amp;family=DM+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <link href="https://api.fontshare.com/v2/css?f%5B%5D=cabinet-grotesk@400,500,700,800&amp;display=swap" rel="stylesheet">
-  <!-- Third-party origins — accepted trade-off: Google Fonts + Fontshare serve the
-       render-critical typefaces; Cloudflare Web Analytics is cookieless and carries
-       no SRI pin because Cloudflare serves a mutable evergreen build. Self-hosting
-       the fonts is the fallback if privacy/availability requirements tighten. -->
+  <!-- Third-party origins intentionally used:
+       - Google Fonts + Fontshare serve the render-critical typefaces.
+       - Cloudflare Web Analytics counts visits and geography without cookies.
+       The page still works with system-font fallbacks if these origins fail. -->
   <!-- Cloudflare Web Analytics -->
   <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "51497c2743dc425ba85c3a026df66aae"}'></script>
   <!-- End Cloudflare Web Analytics -->
